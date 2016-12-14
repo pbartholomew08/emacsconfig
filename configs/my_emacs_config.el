@@ -7,9 +7,9 @@
 ;; Created: Wed Dec 14 22:23:03 2016 (+0000)
 ;; Version: 
 ;; Package-Requires: ()
-;; Last-Updated: Wed Dec 14 22:29:20 2016 (+0000)
+;; Last-Updated: Wed Dec 14 23:08:50 2016 (+0000)
 ;;           By: Paul Bartholomew
-;;     Update #: 4
+;;     Update #: 5
 ;; URL: 
 ;; Doc URL: 
 ;; Keywords: 
@@ -26,6 +26,9 @@
 ;; 
 ;;; Change Log:
 ;;
+;; [14-Dec-2016] Moving backup and autosave directories to
+;;               ~/Documents/emacs_backups/ and
+;;               ~/Documents/emacs_autosave/ respectively.
 ;; [14-Dec-2016] Moving old emacs_appearance.el and emacs_behaviour.el
 ;; 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -117,7 +120,7 @@
 ;;--------------------------------------------------------------------------------------------------
 
 ;; Backups
-(setq backup-directory-alist `(("." . "~/BACKUPS/emacs"))) ; Set the backup directory
+(setq backup-directory-alist `(("." . "~/Documents/emacs_backups"))) ; Set the backup directory
 (setq backup-by-copying t) ; Create copies when backing up, helps dealing with symlinks, maybe slow
                            ; in which case look at backup-by-copying-when-linked.
 (setq delete-old-versions t
@@ -127,7 +130,7 @@
 
 ;; Autosave
 (setq auto-save-file-name-transforms
-      `((".*" "~/BACKUPS/emacs/autosave/" t))) ; Send autosaves to ~/BACKUPS/emacs/
+      `((".*" "~/Documents/emacs_autosave/" t))) ; Send autosaves to ~/BACKUPS/emacs/
 
 (provide 'my_emacs_config)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
