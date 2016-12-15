@@ -5,19 +5,19 @@
 ;; Author: Paul Bartholomew
 ;; Maintainer: Paul Bartholomew
 ;; Created: Wed Dec 14 22:16:58 2016 (+0000)
-;; Version: 
+;; Version: 0.0
 ;; Package-Requires: ()
-;; Last-Updated: Wed Dec 14 22:19:20 2016 (+0000)
+;; Last-Updated: Thu Dec 15 22:07:23 2016 (+0000)
 ;;           By: Paul Bartholomew
-;;     Update #: 2
-;; URL: 
-;; Doc URL: 
-;; Keywords: 
-;; Compatibility: 
+;;     Update #: 3
+;; URL:
+;; Doc URL:
+;; Keywords:
+;; Compatibility:
 ;; 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; 
-;;; Commentary: 
+;;; Commentary:
 ;; 
 ;; 
 ;; 
@@ -46,14 +46,14 @@
 ;; 
 ;;; Code:
 
-(setq org-agenda-files '("~/org"))
+(setq-default org-agenda-files '("~/org"))
 (global-set-key "\C-cl" 'org-store-link)
 (global-set-key "\C-ca" 'org-agenda)
 (global-set-key "\C-cb" 'org-iswitchb)
-(setq org-enforce-todo-dependencies t)  ; Enforces that a parent can only be DONE when 
-                                        ; all children are DONE
-(setq org-log-done 'time)               ; Track time when tasks complete
-(setq org-fast-tag-selection-include-todo t) ; Enable fast access of TODO states
+(setq-default org-enforce-todo-dependencies t)       ; Enforces that a parent can only be DONE
+                                                     ; when all children are DONE
+(setq-default org-log-done 'time)                    ; Track time when tasks complete
+(setq-default org-fast-tag-selection-include-todo t) ; Enable fast access of TODO states
 (add-hook 'org-mode-hook
           (lambda () (linum-mode -1))) ; disable linum mode within org-mode as it does not work
 

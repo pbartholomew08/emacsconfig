@@ -5,22 +5,24 @@
 ;; Author: Paul Bartholomew
 ;; Maintainer: Paul Bartholomew
 ;; Created: Wed Dec 14 22:23:03 2016 (+0000)
-;; Version: 
+;; Version:
 ;; Package-Requires: ()
-;; Last-Updated: Wed Dec 14 23:08:50 2016 (+0000)
+;; Last-Updated: Thu Dec 15 22:04:21 2016 (+0000)
 ;;           By: Paul Bartholomew
-;;     Update #: 5
-;; URL: 
-;; Doc URL: 
-;; Keywords: 
-;; Compatibility: 
+;;     Update #: 14
+;; URL:
+;; Doc URL:
+;; Keywords:
+;; Compatibility:
 ;; 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; 
-;;; Commentary: 
+;;; Commentary:
 ;; 
-;; This file does basic configuration of emacs. For example,
-;; emacs appearance, general behaviours etc.
+;; This file does basic configuration of Emacs.  For example, Emacs
+;; appearance, general behaviours etc.  Also loads packages which may
+;; be configured later, e.g. company or that require minimal
+;; configuration, e.g. flycheck.
 ;; 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; 
@@ -87,7 +89,7 @@
 (global-linum-mode t)
 ;(set-face-attribute 'linum nil :background "#222222") ; Change background colour of linum
 ;(setq linum-format "%3d\u2502") ; Adds a line by linum
-(setq linum-format "%3d")
+(setq-default linum-format "%3d")
 
 ;;====================================================================
 ;; Behaviours
@@ -101,23 +103,23 @@
 ;; Tabbing / indentation
 (setq-default indent-tabs-mode nil) ; Use spaces instead of tabs
 (setq-default tab-always-indent t)
-(setq-default tab-width 2) 
+(setq-default tab-width 2)
 
 ;; enable mouse
 (unless window-system
   (require 'mouse)
   (xterm-mouse-mode t)
   (defun track-mouse (e))
-  (setq mouse-sel-mode t))
+  (setq-default mouse-sel-mode t))
 
 ;; electric indent
 (electric-indent-mode 1) ; Enable auto-indenting
 
 ;; Spell-check
-(setq ispell-program-name "aspell")
-(setq ispell-dictionary "english")
+(setq-default ispell-program-name "aspell")
+(setq-default ispell-dictionary "english")
 
-;;--------------------------------------------------------------------------------------------------
+;;--------------------------------------------------------------------
 
 ;; Backups
 (setq backup-directory-alist `(("." . "~/Documents/emacs_backups"))) ; Set the backup directory
@@ -131,6 +133,27 @@
 ;; Autosave
 (setq auto-save-file-name-transforms
       `((".*" "~/Documents/emacs_autosave/" t))) ; Send autosaves to ~/BACKUPS/emacs/
+
+;;====================================================================
+;; Load packages with minimal configurations
+
+;; Company-mode (autocompletions)
+(require 'company)
+(add-hook 'after-init-hook 'global-company-mode)
+(setq company-idle-delay 0.1)
+(setq company-minimum-prefix-length 2)
+(setq company-backends
+      (remove 'company-dabbrev company-backends)) ; dabbrev is annoying!
+
+;; flycheck
+(require 'flycheck)
+(global-flycheck-mode)
+(setq-default flycheck-emacs-lisp-load-path 'inherit) ; This should prevent "I can't find this file" errors/warnings
+
+;; header2 auto-insert and update headers
+(autoload 'auto-update-file-header "header2") ;; Auto-update headers
+(add-hook 'write-file-hooks 'auto-update-file-header)
+(autoload 'auto-make-header "header2") ; Auto-create headers in new files
 
 (provide 'my_emacs_config)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

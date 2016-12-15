@@ -5,19 +5,19 @@
 ;; Author: Paul Bartholomew
 ;; Maintainer: Paul Bartholomew
 ;; Created: Wed Dec 14 22:19:38 2016 (+0000)
-;; Version: 
+;; Version: 0.0
 ;; Package-Requires: ()
-;; Last-Updated: Wed Dec 14 22:21:50 2016 (+0000)
+;; Last-Updated: Thu Dec 15 22:07:56 2016 (+0000)
 ;;           By: Paul Bartholomew
-;;     Update #: 3
-;; URL: 
-;; Doc URL: 
-;; Keywords: 
-;; Compatibility: 
+;;     Update #: 4
+;; URL:
+;; Doc URL:
+;; Keywords:
+;; Compatibility:
 ;; 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; 
-;;; Commentary: 
+;;; Commentary:
 ;; 
 ;; !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 ;; !!! This code MUST be loaded last!                              !!!
@@ -48,7 +48,7 @@
 ;; 
 ;;; Code:
 
-(setq evil-want-C-i-jump nil) ; stops evil breaking org
+(setq-default evil-want-C-i-jump nil) ; stops evil breaking org
 (require 'evil)
 (evil-mode 1)
 (eval-after-load "evil"

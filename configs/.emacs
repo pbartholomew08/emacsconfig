@@ -7,20 +7,20 @@
 ;; Created: Tue Dec 13 09:11:59 2016 (+0000)
 ;; Version: 0.0
 ;; Package-Requires: ()
-;; Last-Updated: Wed Dec 14 22:34:57 2016 (+0000)
+;; Last-Updated: Thu Dec 15 21:29:04 2016 (+0000)
 ;;           By: Paul Bartholomew
-;;     Update #: 15
-;; URL: 
-;; Doc URL: 
-;; Keywords: 
-;; Compatibility: 
+;;     Update #: 18
+;; URL:
+;; Doc URL:
+;; Keywords:
+;; Compatibility:
 ;; 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; 
-;;; Commentary: 
+;;; Commentary:
 ;; 
 ;; First you must install and bootstrap cask with pallet, as a
-;; minimum, see lambdacat.org. My Cask file should be able to do the
+;; minimum, see lambdacat.org.  My Cask file should be able to do the
 ;; bootstrap.
 ;; 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -65,17 +65,8 @@
 
 (require 'my_emacs_config) ; Basic emacs configuration file
 
+(require 'my_elisp) ; elisp configuration file
 (require 'my_org) ; Org-mode configuration file
-
-;;-------------------------------------------------------------------------------------------------
-;; header2
-;; Updating headers
-(autoload 'auto-update-file-header "header2")
-(add-hook 'write-file-hooks 'auto-update-file-header)
-
-;; Creating headers on new files
-(autoload 'auto-make-header "header2")
-(add-hook 'emacs-lisp-mode-hook 'auto-make-header)
 
 ;;=================================================================================================
 ;; evil should be configured last
