@@ -7,9 +7,9 @@
 ;; Created: Tue Dec 13 09:11:59 2016 (+0000)
 ;; Version: 0.0
 ;; Package-Requires: ()
-;; Last-Updated: Thu Dec 15 21:29:04 2016 (+0000)
+;; Last-Updated: Sun Dec 18 12:40:05 2016 (+0000)
 ;;           By: Paul Bartholomew
-;;     Update #: 18
+;;     Update #: 38
 ;; URL:
 ;; Doc URL:
 ;; Keywords:
@@ -63,15 +63,27 @@
 ;; Load my configs
 (add-to-list 'load-path "~/src/my_emacspackages/configs")
 
+;; General configurations
 (require 'my_emacs_config) ; Basic emacs configuration file
+(require 'my_versioncontrol) ; Version-control configuration
 
+;; Language-specific configurations
 (require 'my_elisp) ; elisp configuration file
+(require 'my_LaTeX)
 (require 'my_org) ; Org-mode configuration file
+(require 'my_python) ; python configuration (uses anaconda-mode)
 
 ;;=================================================================================================
-;; evil should be configured last
+;; evil should be configured last. Also configure keyboard bindings.
+(require 'my_kbd)
 (require 'my_evil) ; Evil mode configuration file
 
 (provide '.emacs)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; .emacs ends here
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(default ((t (:family "DejaVu Sans Mono for Powerline" :foundry "unknown" :slant normal :weight normal :height 98 :width normal)))))
