@@ -2,6 +2,7 @@
 (source melpa)
 
 (depends-on "anaconda-mode")
+(depends-on "auctex")
 (depends-on "company")
 (depends-on "company-anaconda")
 (depends-on "company-auctex")
@@ -9,6 +10,7 @@
 (depends-on "flycheck")
 (depends-on "magit")
 (depends-on "pallet")
+(depends-on "rainbow-delimiters")
 (depends-on "slime")
 (depends-on "slime-company")
 (depends-on "solarized-theme")
