@@ -7,9 +7,9 @@
 ;; Created: Wed Dec 14 22:23:03 2016 (+0000)
 ;; Version:
 ;; Package-Requires: ()
-;; Last-Updated: Thu Dec 15 22:04:21 2016 (+0000)
-;;           By: Paul Bartholomew
-;;     Update #: 14
+;; Last-Updated: Wed Dec 21 13:22:07 2016 (+0000)
+;;					 By: Paul Bartholomew
+;;		 Update #: 27
 ;; URL:
 ;; Doc URL:
 ;; Keywords:
@@ -19,8 +19,8 @@
 ;; 
 ;;; Commentary:
 ;; 
-;; This file does basic configuration of Emacs.  For example, Emacs
-;; appearance, general behaviours etc.  Also loads packages which may
+;; This file does basic configuration of Emacs.	 For example, Emacs
+;; appearance, general behaviours etc.	Also loads packages which may
 ;; be configured later, e.g. company or that require minimal
 ;; configuration, e.g. flycheck.
 ;; 
@@ -29,8 +29,8 @@
 ;;; Change Log:
 ;;
 ;; [14-Dec-2016] Moving backup and autosave directories to
-;;               ~/Documents/emacs_backups/ and
-;;               ~/Documents/emacs_autosave/ respectively.
+;;							 ~/Documents/emacs_backups/ and
+;;							 ~/Documents/emacs_autosave/ respectively.
 ;; [14-Dec-2016] Moving old emacs_appearance.el and emacs_behaviour.el
 ;; 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -42,11 +42,11 @@
 ;; 
 ;; This program is distributed in the hope that it will be useful, but
 ;; WITHOUT ANY WARRANTY; without even the implied warranty of
-;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.	 See the GNU
 ;; General Public License for more details.
 ;; 
 ;; You should have received a copy of the GNU General Public License
-;; along with GNU Emacs.  If not, see <http://www.gnu.org/licenses/>.
+;; along with GNU Emacs.	If not, see <http://www.gnu.org/licenses/>.
 ;; 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; 
@@ -59,14 +59,15 @@
 ;; Set default theme
 
 ; misterioso (comes with emacs)
-(load-theme 'misterioso)
+;(load-theme 'misterioso)
 
 ; solarized (needs to be downloaded, doesnt seem to work)
 ;(add-to-list 'custom-theme-load-path "~/Dropbox/emacs/themes/emacs-color-theme-solarized-master")
-;(load-theme 'solarized t)
+;(load-theme 'solarized)
 ;(set-frame-parameter nil 'background-mode 'dark)
 ;(set-terminal-parameter nil 'background-mode 'dark)
-;(enable-theme 'solarized)
+;(load-theme 'solarized-dark t)
+(load-theme 'spacemacs-dark t)
 
 ;;--------------------------------------------------------------------
 ;; Tweaks
@@ -100,17 +101,24 @@
 ;; Highlight matching parenthesis
 (show-paren-mode 1)
 
+;; Auto-close parentheses
+(electric-pair-mode 1)
+
+;; Rainbow-coloured brackes
+(require 'rainbow-delimiters)
+(add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
+
 ;; Tabbing / indentation
-(setq-default indent-tabs-mode nil) ; Use spaces instead of tabs
+(setq-default indent-tabs-mode t)
 (setq-default tab-always-indent t)
 (setq-default tab-width 2)
 
 ;; enable mouse
 (unless window-system
-  (require 'mouse)
-  (xterm-mouse-mode t)
-  (defun track-mouse (e))
-  (setq-default mouse-sel-mode t))
+	(require 'mouse)
+	(xterm-mouse-mode t)
+	(defun track-mouse (e))
+	(setq-default mouse-sel-mode t))
 
 ;; electric indent
 (electric-indent-mode 1) ; Enable auto-indenting
@@ -124,15 +132,19 @@
 ;; Backups
 (setq backup-directory-alist `(("." . "~/Documents/emacs_backups"))) ; Set the backup directory
 (setq backup-by-copying t) ; Create copies when backing up, helps dealing with symlinks, maybe slow
-                           ; in which case look at backup-by-copying-when-linked.
+													 ; in which case look at backup-by-copying-when-linked.
 (setq delete-old-versions t
-      kept-new-versions 6
-      kept-old-versions 2
-      version-control t) ; Maintain a set of version controlled backups
+			kept-new-versions 6
+			kept-old-versions 2
+			version-control t) ; Maintain a set of version controlled backups
 
 ;; Autosave
 (setq auto-save-file-name-transforms
-      `((".*" "~/Documents/emacs_autosave/" t))) ; Send autosaves to ~/BACKUPS/emacs/
+			`((".*" "~/Documents/emacs_autosave/" t))) ; Send autosaves to ~/BACKUPS/emacs/
+
+;; Save history
+(savehist-mode t)
+(setq-default savehist-file "~/.emacs_history")
 
 ;;====================================================================
 ;; Load packages with minimal configurations
@@ -143,7 +155,7 @@
 (setq company-idle-delay 0.1)
 (setq company-minimum-prefix-length 2)
 (setq company-backends
-      (remove 'company-dabbrev company-backends)) ; dabbrev is annoying!
+			(remove 'company-dabbrev company-backends)) ; dabbrev is annoying!
 
 ;; flycheck
 (require 'flycheck)
