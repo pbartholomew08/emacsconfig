@@ -7,9 +7,9 @@
 ;; Created: Tue Dec 13 09:11:59 2016 (+0000)
 ;; Version: 0.0
 ;; Package-Requires: ()
-;; Last-Updated: Sun Dec 18 12:40:05 2016 (+0000)
+;; Last-Updated: Thu Dec 22 22:19:59 2016 (+0000)
 ;;           By: Paul Bartholomew
-;;     Update #: 38
+;;     Update #: 40
 ;; URL:
 ;; Doc URL:
 ;; Keywords:
@@ -69,9 +69,11 @@
 
 ;; Language-specific configurations
 (require 'my_elisp) ; elisp configuration file
+(require 'my_clisp) ; common lisp configuration
 (require 'my_LaTeX)
 (require 'my_org) ; Org-mode configuration file
 (require 'my_python) ; python configuration (uses anaconda-mode)
+(require 'my_cc) ; C/C++ config
 
 ;;=================================================================================================
 ;; evil should be configured last. Also configure keyboard bindings.
