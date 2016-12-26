@@ -7,7 +7,7 @@
 ;; Created: Wed Dec 14 22:23:03 2016 (+0000)
 ;; Version:
 ;; Package-Requires: ()
-;; Last-Updated: Wed Dec 21 13:22:07 2016 (+0000)
+;; Last-Updated: Mon Dec 26 00:27:57 2016 (+0000)
 ;;					 By: Paul Bartholomew
 ;;		 Update #: 27
 ;; URL:
@@ -72,25 +72,38 @@
 ;;--------------------------------------------------------------------
 ;; Tweaks
 
-; Line highlighting
+;; Line highlighting
 (global-hl-line-mode t)
 (set-face-foreground 'highlight nil)
 
-; Disable menu bar
+;; Disable menu bar
 (menu-bar-mode -1)
 (tool-bar-mode -1)
 
-; Start full-screen
+;; Start full-screen
 (add-to-list 'initial-frame-alist '(fullscreen . maximized))
 
-; Disable scroll bar
+;; Disable scroll bar
 (scroll-bar-mode -1)
 
-; Line numbering
+;; Line numbering
 (global-linum-mode t)
 ;(set-face-attribute 'linum nil :background "#222222") ; Change background colour of linum
 ;(setq linum-format "%3d\u2502") ; Adds a line by linum
 (setq-default linum-format "%3d")
+
+;; Mode line customisation
+(setq-default mode-line-format
+							'("%e"
+								mode-line-front-space
+								"(%m) "
+								mode-line-buffer-identification " "
+								mode-line-modified
+								" %l:%c |"
+								flycheck-mode-line
+								))
+(setq-default evil-mode-line-format
+			'(before . mode-line-front-space))
 
 ;;====================================================================
 ;; Behaviours
@@ -131,8 +144,7 @@
 
 ;; Backups
 (setq backup-directory-alist `(("." . "~/Documents/emacs_backups"))) ; Set the backup directory
-(setq backup-by-copying t) ; Create copies when backing up, helps dealing with symlinks, maybe slow
-													 ; in which case look at backup-by-copying-when-linked.
+(setq backup-by-copying t) ; Create copies when backing up, helps dealing with symlinks, maybe slow in which case look at backup-by-copying-when-linked.
 (setq delete-old-versions t
 			kept-new-versions 6
 			kept-old-versions 2
@@ -161,6 +173,8 @@
 (require 'flycheck)
 (global-flycheck-mode)
 (setq-default flycheck-emacs-lisp-load-path 'inherit) ; This should prevent "I can't find this file" errors/warnings
+(with-eval-after-load 'flycheck
+	(flycheck-pos-tip-mode))
 
 ;; header2 auto-insert and update headers
 (autoload 'auto-update-file-header "header2") ;; Auto-update headers
