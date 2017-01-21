@@ -7,9 +7,9 @@
 ;; Created: Wed Dec 14 22:16:58 2016 (+0000)
 ;; Version: 0.0
 ;; Package-Requires: ()
-;; Last-Updated: Thu Dec 15 22:07:23 2016 (+0000)
+;; Last-Updated: Tue Jan 10 23:16:46 2017 (+0000)
 ;;           By: Paul Bartholomew
-;;     Update #: 3
+;;     Update #: 45
 ;; URL:
 ;; Doc URL:
 ;; Keywords:
@@ -46,16 +46,40 @@
 ;; 
 ;;; Code:
 
-(setq-default org-agenda-files '("~/org"))
-(global-set-key "\C-cl" 'org-store-link)
-(global-set-key "\C-ca" 'org-agenda)
-(global-set-key "\C-cb" 'org-iswitchb)
+;; Basic customisation
+(setq-default org-directory "~/org/")
+(setq-default org-agenda-files '("~/org/"))
+(global-set-key (kbd "C-c l") 'org-store-link)
+(global-set-key (kbd "C-c a") 'org-agenda)
+(global-set-key (kbd "C-c b") 'org-iswitchb)
 (setq-default org-enforce-todo-dependencies t)       ; Enforces that a parent can only be DONE
                                                      ; when all children are DONE
 (setq-default org-log-done 'time)                    ; Track time when tasks complete
 (setq-default org-fast-tag-selection-include-todo t) ; Enable fast access of TODO states
+(setq-default org-startup-indented t)                ; Enable indented mode by default
+
+;; linum-mode does not work well in org-mode
 (add-hook 'org-mode-hook
-          (lambda () (linum-mode -1))) ; disable linum mode within org-mode as it does not work
+          (lambda ()
+						(linum-mode -1)))
+
+;; Enable flyspell
+(add-hook 'org-mode-hook 'flyspell-mode)
+
+;; Enable auto-fill
+(add-hook 'org-mode-hook 'auto-fill-mode)
+
+;; Capture mode
+(setq-default org-default-notes-file "notes.org")
+(global-set-key (kbd "C-c c") 'org-capture)
+(setq-default org-capture-templates
+							'(("n" "Note" plain (file+datetree "notes.org")
+								 "%U %?\nContext: %A")
+								("t" "ToDo" entry (file+headline "todo.org" "Tasks")
+								 "* TODO %?\nCreated: %U\nContext: %A")))
+
+;; Attachments
+(setq-default org-attach-method 'lns)
 
 (provide 'my_org)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
