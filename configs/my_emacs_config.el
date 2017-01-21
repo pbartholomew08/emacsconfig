@@ -182,6 +182,9 @@
 (with-eval-after-load 'flycheck
 	(flycheck-pos-tip-mode))
 
+;; flyspell
+(setq-default ispell-dictionary "british")
+
 ;; header2 auto-insert and update headers
 (autoload 'auto-update-file-header "header2") ;; Auto-update headers
 (add-hook 'write-file-hooks 'auto-update-file-header)
