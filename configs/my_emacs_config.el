@@ -161,6 +161,9 @@
 (savehist-mode t)
 (setq-default savehist-file "~/.emacs_history")
 
+;; Delete trailing-whitespace
+;(add-hook 'before-save-hook 'delete-trailing-whitespace)
+
 ;;====================================================================
 ;; Load packages with minimal configurations
 
