@@ -7,9 +7,9 @@
 ;; Created: Fri Dec 16 23:40:37 2016 (+0000)
 ;; Version:
 ;; Package-Requires: ()
-;; Last-Updated: Fri Dec 16 23:42:59 2016 (+0000)
+;; Last-Updated: Sat Jan  7 17:49:20 2017 (+0000)
 ;;           By: Paul Bartholomew
-;;     Update #: 4
+;;     Update #: 16
 ;; URL:
 ;; Doc URL:
 ;; Keywords:
@@ -48,16 +48,26 @@
 (defun buildScript ()
   "Run the buildscript .buildScript.sh."
   (interactive)
-  (shell-command "./.buildScript.sh")
-  )
+	(shell-command "./.buildScript.sh"))
 (global-set-key (kbd "C-c b") 'buildScript)
 
-; Buffer cycling
+;; Buffer cycling
 (global-set-key (kbd "C-S-<prior>") 'previous-buffer)
 (global-set-key (kbd "C-S-<next>") 'next-buffer)
 
-; Close buffer
+;; Close buffer
 (global-set-key (kbd "C-S-w") 'delete-window)
+
+;; Indent buffer
+(defun my_indent-buffer ()
+	"Use `indent-region between' `point-min' and `point-max' to indent/format whole buffer."
+	(interactive)
+	(save-excursion
+		(indent-region (point-min) (point-max) nil)))
+(global-set-key (kbd "C-S-f") 'my_indent-buffer)
+
+;; Enable whitespace-mode
+(global-set-key (kbd "C-c w") 'whitespace-mode)
 
 (provide 'my_kbd)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
