@@ -7,9 +7,9 @@
 ;; Created: Thu Dec 15 22:19:50 2016 (+0000)
 ;; Version: 0.0
 ;; Package-Requires: (anaconda-mode)
-;; Last-Updated: Thu Dec 15 22:23:34 2016 (+0000)
+;; Last-Updated: Thu Jan 19 09:46:29 2017 (+0000)
 ;;           By: Paul Bartholomew
-;;     Update #: 1
+;;     Update #: 9
 ;; URL:
 ;; Doc URL:
 ;; Keywords:
@@ -50,6 +50,15 @@
 (add-hook 'python-mode-hook 'anaconda-eldoc-mode) ; enables showing documentation using eldoc
 (eval-after-load "company"
   '(add-to-list 'company-backends 'company-anaconda))
+
+;; Fix that which python-mode breaks, namely indentation
+;; Use tabs to indent (because I'm not a barbarian)
+;; and have them display as two spaces wide.
+(add-hook 'python-mode-hook
+					(lambda ()
+						(setq-default indent-tabs-mode t)
+						(setq-default tab-width 2)
+						(setq-default python-indent-offset 2)))
 
 (provide 'my_python)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
