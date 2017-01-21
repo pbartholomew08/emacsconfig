@@ -113,6 +113,9 @@
 
 ;; Highlight matching parenthesis
 (show-paren-mode 1)
+(require 'paren)
+(set-face-background 'show-paren-match (face-background 'hl-line))
+(set-face-attribute 'show-paren-match nil :weight 'ultra-bold)
 
 ;; Auto-close parentheses
 (electric-pair-mode 1)
