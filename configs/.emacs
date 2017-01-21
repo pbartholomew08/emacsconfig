@@ -7,9 +7,9 @@
 ;; Created: Tue Dec 13 09:11:59 2016 (+0000)
 ;; Version: 0.0
 ;; Package-Requires: ()
-;; Last-Updated: Thu Dec 22 22:19:59 2016 (+0000)
+;; Last-Updated: Mon Jan  9 11:48:57 2017 (+0000)
 ;;           By: Paul Bartholomew
-;;     Update #: 40
+;;     Update #: 48
 ;; URL:
 ;; Doc URL:
 ;; Keywords:
@@ -88,4 +88,13 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:family "DejaVu Sans Mono for Powerline" :foundry "unknown" :slant normal :weight normal :height 98 :width normal)))))
+ '(default ((t (:family "DejaVu Sans Mono for Powerline" :foundry "unknown" :slant normal :weight normal :height 98 :width normal))))
+ '(writegood-duplicates-face ((t (:foreground "deep pink" :weight bold))))
+ '(writegood-passive-voice-face ((t (:foreground "cyan" :weight bold))))
+ '(writegood-weasels-face ((t (:foreground "dark orange" :weight bold)))))
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
