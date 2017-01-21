@@ -142,6 +142,7 @@
 ;; Spell-check
 (setq-default ispell-program-name "aspell")
 (setq-default ispell-dictionary "english")
+(setq-default ispell-personal-dictionary "~/.my_dictionary")
 
 ;;--------------------------------------------------------------------
 
