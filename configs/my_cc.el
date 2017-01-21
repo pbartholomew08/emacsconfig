@@ -7,9 +7,9 @@
 ;; Created: Thu Dec 22 22:20:11 2016 (+0000)
 ;; Version: 0.0
 ;; Package-Requires: ()
-;; Last-Updated: Thu Dec 22 23:22:34 2016 (+0000)
+;; Last-Updated: Tue Jan  3 17:52:28 2017 (+0000)
 ;;           By: Paul Bartholomew
-;;     Update #: 5
+;;     Update #: 7
 ;; URL:
 ;; Doc URL:
 ;; Keywords:
@@ -47,6 +47,9 @@
 
 ;; General
 (load "/usr/share/clang/clang-format.el")
+(add-hook 'c-mode-hook
+					(lambda ()
+						(local-set-key (kbd "C-S-f") 'clang-format-buffer)))
 ;; C
 (add-hook 'c-mode-hook 'auto-make-header) ; Set create headers in new .c files automatically
 (setq-default c-default-style "bsd"
