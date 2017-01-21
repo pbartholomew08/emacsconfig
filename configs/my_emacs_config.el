@@ -1,5 +1,5 @@
 ;;; my_emacs_config.el --- Basic emacs configuration.
-;; 
+;;
 ;; Filename: my_emacs_config.el
 ;; Description: Basic configuration file for emacs.
 ;; Author: Paul Bartholomew
@@ -7,49 +7,49 @@
 ;; Created: Wed Dec 14 22:23:03 2016 (+0000)
 ;; Version:
 ;; Package-Requires: ()
-;; Last-Updated: Mon Dec 26 00:27:57 2016 (+0000)
+;; Last-Updated: Sat Jan 21 13:52:54 2017 (+0000)
 ;;					 By: Paul Bartholomew
 ;;		 Update #: 27
 ;; URL:
 ;; Doc URL:
 ;; Keywords:
 ;; Compatibility:
-;; 
+;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; 
+;;
 ;;; Commentary:
-;; 
+;;
 ;; This file does basic configuration of Emacs.	 For example, Emacs
 ;; appearance, general behaviours etc.	Also loads packages which may
 ;; be configured later, e.g. company or that require minimal
 ;; configuration, e.g. flycheck.
-;; 
+;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; 
+;;
 ;;; Change Log:
 ;;
 ;; [14-Dec-2016] Moving backup and autosave directories to
 ;;							 ~/Documents/emacs_backups/ and
 ;;							 ~/Documents/emacs_autosave/ respectively.
 ;; [14-Dec-2016] Moving old emacs_appearance.el and emacs_behaviour.el
-;; 
+;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; 
+;;
 ;; This program is free software: you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
 ;; the Free Software Foundation, either version 3 of the License, or (at
 ;; your option) any later version.
-;; 
+;;
 ;; This program is distributed in the hope that it will be useful, but
 ;; WITHOUT ANY WARRANTY; without even the implied warranty of
 ;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.	 See the GNU
 ;; General Public License for more details.
-;; 
+;;
 ;; You should have received a copy of the GNU General Public License
 ;; along with GNU Emacs.	If not, see <http://www.gnu.org/licenses/>.
-;; 
+;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; 
+;;
 ;;; Code:
 
 ;;====================================================================
@@ -93,15 +93,25 @@
 (setq-default linum-format "%3d")
 
 ;; Mode line customisation
-(setq-default mode-line-format
-							'("%e"
-								mode-line-front-space
-								"(%m) "
-								mode-line-buffer-identification " "
-								mode-line-modified
-								" %l:%c |"
-								flycheck-mode-line
-								))
+(defvar my-infoface-colour)
+(setq my-infoface-colour "darkolivegreen")
+(defface my-infoface
+	'((((class color))
+		 :foreground "darkolivegreen")
+	  (t :inverse-video t))
+	"Grab the colour of `flycheck-info' face."
+	:group 'basic-faces)
+
+;(setq-default mode-line-format
+;							'("%e"
+;								mode-line-front-space
+;								(:eval (propertize "(%m) " 'face 'bold))
+;								mode-line-buffer-identification " "
+;								mode-line-modified
+;								" %l:%c |"
+;								flycheck-mode-line
+;								(:eval (propertize "FOO" 'face 'my-infoface))
+;								))
 (setq-default evil-mode-line-format
 			'(before . mode-line-front-space))
 
@@ -143,6 +153,9 @@
 (setq-default ispell-program-name "aspell")
 (setq-default ispell-dictionary "english")
 (setq-default ispell-personal-dictionary "~/.my_dictionary")
+
+;; Blink cursor forever
+;(blink-cursor-mode -1) ; Zero or negative value blinks forever
 
 ;;--------------------------------------------------------------------
 
@@ -190,6 +203,9 @@
 (autoload 'auto-update-file-header "header2") ;; Auto-update headers
 (add-hook 'write-file-hooks 'auto-update-file-header)
 (autoload 'auto-make-header "header2") ; Auto-create headers in new files
+
+;; helm
+;(require 'helm-config)
 
 (provide 'my_emacs_config)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
