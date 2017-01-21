@@ -7,9 +7,9 @@
 ;; Created: Wed Dec 14 22:19:38 2016 (+0000)
 ;; Version: 0.0
 ;; Package-Requires: ()
-;; Last-Updated: Thu Dec 15 22:07:56 2016 (+0000)
+;; Last-Updated: Tue Jan  3 20:48:53 2017 (+0000)
 ;;           By: Paul Bartholomew
-;;     Update #: 4
+;;     Update #: 8
 ;; URL:
 ;; Doc URL:
 ;; Keywords:
@@ -47,6 +47,15 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; 
 ;;; Code:
+
+(defun my_comment-dwim (char-start char-end)
+	"Improved version of `comment-dwim'."
+	(interactive
+	 (if (use-region-p)
+			 (list (region-beginning) (region-end))
+		 (list (line-beginning-position) (line-end-position))))
+
+	())
 
 (setq-default evil-want-C-i-jump nil) ; stops evil breaking org
 (require 'evil)
