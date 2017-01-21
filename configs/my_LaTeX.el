@@ -7,9 +7,9 @@
 ;; Created: Sat Dec 17 19:50:11 2016 (+0000)
 ;; Version: 0.0
 ;; Package-Requires: ()
-;; Last-Updated: Sun Dec 18 16:24:26 2016 (+0000)
+;; Last-Updated: Sat Jan 21 16:55:25 2017 (+0000)
 ;;           By: Paul Bartholomew
-;;     Update #: 25
+;;     Update #: 36
 ;; URL:
 ;; Doc URL:
 ;; Keywords:
@@ -46,6 +46,8 @@
 ;;; Code:
 
 ;; Enable document parsing
+;; Apparently this is important for bibTeX, however
+;; it does not run in my case.
 (setq-default TeX-auto-save t)
 (setq-default TeX-parse-self t)
 
@@ -59,13 +61,13 @@
 (add-hook 'LaTeX-mode-hook 'flyspell-mode)
 (add-hook 'LaTeX-mode-hook 'flyspell-buffer)
 
-;; Enable auto-fill 
-;(add-hook 'LaTeX-mode-hook 'auto-fill-mode)
+;; Enable auto-fill
+(add-hook 'LaTeX-mode-hook 'auto-fill-mode)
 
 ;; Set keys
 (defun my-LaTeX-keys ()
   "Set ctrl-c p to run preview-section."
-  (evil-define-key 'normal LaTeX-mode-map (kbd "C-c p") 'preview-section))
+  (evil-define-key 'normal 'LaTeX-mode-map (kbd "C-c p") 'preview-section))
 (add-hook 'LaTeX-mode-hook 'my-LaTeX-keys)
 
 ;; Enable auto-completion
@@ -76,6 +78,7 @@
 (add-hook 'LaTeX-mode-hook 'rainbow-delimiters-mode)
 
 ;; Use okular with synctex
+(server-mode) ; Enables two-way code-pdf search
 (setq LaTeX-command "latex -synctex=1")
 (setq-default TeX-view-program-list
       '(("okular" "okular --unique %o#src:%n%b")))
@@ -85,6 +88,15 @@
 ;; RefTeX integration
 (add-hook 'LaTeX-mode-hook 'turn-on-reftex)
 (setq-default reftex-plug-into-AUCTeX t)
+
+;; Writegood-mode, highlights poor English
+(require 'writegood-mode)
+(add-hook 'LaTeX-mode-hook
+					(lambda ()
+						(local-set-key (kbd "C-c g") 'writegood-mode)))
+
+;; Add a header automatically
+(add-hook 'LaTeX-mode-hook 'auto-make-header)
 
 (provide 'my_LaTeX)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
