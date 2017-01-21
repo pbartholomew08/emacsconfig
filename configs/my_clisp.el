@@ -7,9 +7,9 @@
 ;; Created: Thu Dec 22 22:07:58 2016 (+0000)
 ;; Version: 0.0
 ;; Package-Requires: ()
-;; Last-Updated: Thu Dec 22 22:18:01 2016 (+0000)
+;; Last-Updated: Mon Dec 26 14:29:13 2016 (+0000)
 ;;           By: Paul Bartholomew
-;;     Update #: 6
+;;     Update #: 13
 ;; URL:
 ;; Doc URL:
 ;; Keywords:
@@ -45,7 +45,9 @@
 ;; 
 ;;; Code:
 
-(setq-default inferior-lisp-program "/usr/bin/clisp")
+(setq-default slime-lisp-implementations
+							'((clisp ("clisp"))
+								(sbcl ("sbcl" "--core" "/home/paul/src/clisp/sbcl/sbcl.core-for-slime"))))
 (setq-default slime-contribs '(slime-repl))
 
 (provide 'my_clisp)
