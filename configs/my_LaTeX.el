@@ -7,9 +7,9 @@
 ;; Created: Sat Dec 17 19:50:11 2016 (+0000)
 ;; Version: 0.0
 ;; Package-Requires: ()
-;; Last-Updated: Sat Jan 21 16:55:25 2017 (+0000)
+;; Last-Updated: Sun Jan 22 11:40:18 2017 (+0000)
 ;;           By: Paul Bartholomew
-;;     Update #: 36
+;;     Update #: 37
 ;; URL:
 ;; Doc URL:
 ;; Keywords:
@@ -46,8 +46,8 @@
 ;;; Code:
 
 ;; Enable document parsing
-;; Apparently this is important for bibTeX, however
-;; it does not run in my case.
+;; N.B. The order appears to be important to properly call BibTeX if
+;; necessary.
 (setq-default TeX-auto-save t)
 (setq-default TeX-parse-self t)
 
