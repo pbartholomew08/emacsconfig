@@ -7,9 +7,9 @@
 ;; Created: Tue Dec 13 09:11:59 2016 (+0000)
 ;; Version: 0.0
 ;; Package-Requires: ()
-;; Last-Updated: Mon Jan  9 11:48:57 2017 (+0000)
+;; Last-Updated: Wed Sep 13 09:07:18 2017 (+0100)
 ;;           By: Paul Bartholomew
-;;     Update #: 48
+;;     Update #: 51
 ;; URL:
 ;; Doc URL:
 ;; Keywords:
@@ -53,6 +53,13 @@
  
 ;;=================================================================================================
 ;; Cask and pallet: better package management
+
+;; Added by Package.el.  This must come before configurations of
+;; installed packages.  Don't delete this line.  If you don't want it,
+;; just comment it out by adding a semicolon to the start of the line.
+;; You may delete these explanatory comments.
+(package-initialize)
+
 (require 'cask "/home/paul/.cask/cask.el")
 (cask-initialize)
 
@@ -62,6 +69,7 @@
 ;;=================================================================================================
 ;; Load my configs
 (add-to-list 'load-path "~/src/my_emacspackages/configs")
+(add-to-list 'load-path "~/src/elisp")
 
 ;; General configurations
 (require 'my_emacs_config) ; Basic emacs configuration file
@@ -97,4 +105,6 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- )
+ '(package-selected-packages
+	 (quote
+		(writegood-mode spacemacs-theme solarized-theme slime-company rainbow-delimiters pallet magit helm header2 flycheck-pos-tip evil diff-hl company-auctex company-anaconda))))
