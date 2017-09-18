@@ -7,9 +7,9 @@
 ;; Created: Wed Dec 14 22:16:58 2016 (+0000)
 ;; Version: 0.0
 ;; Package-Requires: ()
-;; Last-Updated: Tue Jan 10 23:16:46 2017 (+0000)
+;; Last-Updated: Wed Feb  8 20:30:24 2017 (+0000)
 ;;           By: Paul Bartholomew
-;;     Update #: 45
+;;     Update #: 57
 ;; URL:
 ;; Doc URL:
 ;; Keywords:
@@ -80,6 +80,17 @@
 
 ;; Attachments
 (setq-default org-attach-method 'lns)
+
+;; Exporting
+(add-hook 'org-mode-hook
+					'(lambda ()
+						 (delete '("\\.pdf\\'" .default) org-file-apps)
+						 (add-to-list 'org-file-apps '("\\.pdf\\'" . "okular %s"))))
+
+;; Highlight LaTeX
+(eval-after-load 'org
+	'(setf org-highlight-latex-and-related '(latex))
+	)
 
 (provide 'my_org)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
