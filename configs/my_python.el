@@ -7,9 +7,9 @@
 ;; Created: Thu Dec 15 22:19:50 2016 (+0000)
 ;; Version: 0.0
 ;; Package-Requires: (anaconda-mode)
-;; Last-Updated: Thu Jan 19 09:46:29 2017 (+0000)
+;; Last-Updated: Mon Feb 13 21:27:20 2017 (+0000)
 ;;           By: Paul Bartholomew
-;;     Update #: 9
+;;     Update #: 38
 ;; URL:
 ;; Doc URL:
 ;; Keywords:
@@ -56,9 +56,9 @@
 ;; and have them display as two spaces wide.
 (add-hook 'python-mode-hook
 					(lambda ()
-						(setq-default indent-tabs-mode t)
-						(setq-default tab-width 2)
-						(setq-default python-indent-offset 2)))
+						(setq indent-tabs-mode t)
+						(setq tab-width 2)
+						(setq python-indent-offset 2)))
 
 (provide 'my_python)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
