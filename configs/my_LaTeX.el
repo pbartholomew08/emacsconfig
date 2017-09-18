@@ -7,9 +7,9 @@
 ;; Created: Sat Dec 17 19:50:11 2016 (+0000)
 ;; Version: 0.0
 ;; Package-Requires: ()
-;; Last-Updated: Sun Jan 22 11:40:18 2017 (+0000)
+;; Last-Updated: Wed Feb  8 12:14:22 2017 (+0000)
 ;;           By: Paul Bartholomew
-;;     Update #: 37
+;;     Update #: 42
 ;; URL:
 ;; Doc URL:
 ;; Keywords:
@@ -88,6 +88,23 @@
 ;; RefTeX integration
 (add-hook 'LaTeX-mode-hook 'turn-on-reftex)
 (setq-default reftex-plug-into-AUCTeX t)
+(setq-default reftex-default-bibliography
+			'("~/Documents/BvWResearch-Zotero.bib"))
+
+;; RefTeX speedups
+(setq-default reftex-enable-partial-scans t)
+(setq-default reftex-save-parse-info t)
+(setq-default reftex-use-multiple-selection-buffers t)
+(setq-default reftex-trust-label-prefix '("eq"))
+
+;; Enable reftex in org-mode
+(defun org-mode-reftex-setup ()
+	(load-library "reftex")
+	(and (buffer-file-name)
+			 (file-exists-p (buffer-file-name))
+			 (reftex-parse-all))
+	(define-key org-mode-map (kbd "C-c (") 'reftex-citation))
+(add-hook 'org-mode-hook 'org-mode-reftex-setup)
 
 ;; Writegood-mode, highlights poor English
 (require 'writegood-mode)
