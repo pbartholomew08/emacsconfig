@@ -7,9 +7,9 @@
 ;; Created: Sat Dec 17 19:50:11 2016 (+0000)
 ;; Version: 0.0
 ;; Package-Requires: ()
-;; Last-Updated: Wed Feb  8 12:14:22 2017 (+0000)
+;; Last-Updated: Tue Sep 19 15:32:52 2017 (+0100)
 ;;           By: Paul Bartholomew
-;;     Update #: 42
+;;     Update #: 43
 ;; URL:
 ;; Doc URL:
 ;; Keywords:
@@ -84,6 +84,12 @@
       '(("okular" "okular --unique %o#src:%n%b")))
 (setq TeX-view-program-selection
       '((output-pdf "okular")))
+
+;; Add nomencl build
+(eval-after-load "tex"
+	'(add-to-list 'TeX-command-list
+								'("Nomenclature" "makeindex %s.nlo -s nomencl.ist -o %s.nls"
+									TeX-run-command nil t :help "Create nomenclature file")))
 
 ;; RefTeX integration
 (add-hook 'LaTeX-mode-hook 'turn-on-reftex)
