@@ -7,9 +7,9 @@
 ;; Created: Mon Sep 18 23:27:52 2017 (+0100)
 ;; Version: 0.0
 ;; Package-Requires: ()
-;; Last-Updated: Wed Sep 20 00:02:01 2017 (+0100)
-;;           By: Paul Bartholomew
-;;     Update #: 12
+;; Last-Updated: Fri Sep 29 16:44:11 2017 (+0100)
+;;           By: Paul
+;;     Update #: 5
 ;; URL:
 ;; Doc URL:
 ;; Keywords:
@@ -64,6 +64,7 @@
 									)
 						(if f90-auto-keyword-case
 								(f90-change-keywords f90-auto-keyword-case))))
+(setq-default flycheck-fortran-gfortran-executable "mpif90") ; Prevents "Cannot find MPI errors"
 
 (provide 'my_fortran)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
