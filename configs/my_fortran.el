@@ -7,9 +7,9 @@
 ;; Created: Mon Sep 18 23:27:52 2017 (+0100)
 ;; Version: 0.0
 ;; Package-Requires: ()
-;; Last-Updated: Mon Sep 18 23:29:51 2017 (+0100)
-;;           By: Paul Bartholomew
-;;     Update #: 3
+;; Last-Updated: Fri Sep 29 16:44:11 2017 (+0100)
+;;           By: Paul
+;;     Update #: 5
 ;; URL:
 ;; Doc URL:
 ;; Keywords:
@@ -46,6 +46,7 @@
 ;; 
 ;;; Code:
 
+(setq-default flycheck-fortran-gfortran-executable "mpif90") ; Prevents "Cannot find MPI errors"
 
 (provide 'my_fortran)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
