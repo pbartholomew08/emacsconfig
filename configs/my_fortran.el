@@ -7,9 +7,9 @@
 ;; Created: Mon Sep 18 23:27:52 2017 (+0100)
 ;; Version: 0.0
 ;; Package-Requires: ()
-;; Last-Updated: Mon Sep 18 23:29:51 2017 (+0100)
+;; Last-Updated: Wed Sep 20 00:02:01 2017 (+0100)
 ;;           By: Paul Bartholomew
-;;     Update #: 3
+;;     Update #: 12
 ;; URL:
 ;; Doc URL:
 ;; Keywords:
@@ -46,6 +46,24 @@
 ;; 
 ;;; Code:
 
+;; General
+(defun my_fortran_keybindings ()
+	"Bind keys for fortran mode(s)."
+	(local-set-key (kbd "C-c C-c") 'compile))
+
+;; FORTRAN (F77)
+(add-hook 'fortran-mode-hook 'auto-make-header)
+
+;; fortran (F90)
+(add-hook 'f90-mode-hook 'auto-make-header)
+(add-hook 'f90-mode-hook 'my_fortran_keybindings)
+(add-hook 'f90-mode-hook
+					(lambda ()
+						(setq f90-do-indent 2 ; Default is 3
+									f90-if-indent 2 ; Default is 3
+									)
+						(if f90-auto-keyword-case
+								(f90-change-keywords f90-auto-keyword-case))))
 
 (provide 'my_fortran)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
