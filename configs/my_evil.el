@@ -7,9 +7,9 @@
 ;; Created: Wed Dec 14 22:19:38 2016 (+0000)
 ;; Version: 0.0
 ;; Package-Requires: ()
-;; Last-Updated: Tue Jan  3 20:48:53 2017 (+0000)
-;;           By: Paul Bartholomew
-;;     Update #: 8
+;; Last-Updated: Thu Oct  5 15:33:22 2017 (+0100)
+;;           By: Paul
+;;     Update #: 9
 ;; URL:
 ;; Doc URL:
 ;; Keywords:
@@ -67,7 +67,10 @@
      (define-key evil-normal-state-map (kbd "C-w <down>") 'evil-window-down)
      (define-key evil-normal-state-map (kbd "C-w <up>") 'evil-window-up)
      (define-key evil-normal-state-map (kbd "C-/") 'comment-dwim)
-  ))
+		 ))
+
+(eval-after-load 'evil-ex
+	'(evil-ex-define-cmd "mg" 'magit-status))
 
 (provide 'my_evil)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
