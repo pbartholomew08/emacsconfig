@@ -7,9 +7,9 @@
 ;; Created: Thu Dec 22 22:07:58 2016 (+0000)
 ;; Version: 0.0
 ;; Package-Requires: ()
-;; Last-Updated: Mon Dec 26 14:29:13 2016 (+0000)
+;; Last-Updated: Tue Oct 17 22:12:17 2017 (+0100)
 ;;           By: Paul Bartholomew
-;;     Update #: 13
+;;     Update #: 20
 ;; URL:
 ;; Doc URL:
 ;; Keywords:
@@ -46,9 +46,19 @@
 ;;; Code:
 
 (setq-default slime-lisp-implementations
-							'((clisp ("clisp"))
-								(sbcl ("sbcl" "--core" "/home/paul/src/clisp/sbcl/sbcl.core-for-slime"))))
+							'(
+								(clisp ("clisp"))
+								(sbcl ("sbcl" "--core" "/home/paul/src/clisp/sbcl/sbcl.core-for-slime"))
+								))
 (setq-default slime-contribs '(slime-repl))
+
+(add-hook 'lisp-mode-hook 'auto-make-header)
+
+;; Automatically load SLIME
+(add-hook 'slime-mode-hook
+					(lambda ()
+						(unless (slime-connected-p)
+							(save-excursion (slime)))))
 
 (provide 'my_clisp)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
