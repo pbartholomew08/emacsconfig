@@ -7,7 +7,7 @@
 ;; Created: Wed Dec 14 22:23:03 2016 (+0000)
 ;; Version:
 ;; Package-Requires: ()
-;; Last-Updated: Sun Oct 15 16:30:35 2017 (+0100)
+;; Last-Updated: Fri Oct 20 14:09:27 2017 (+0100)
 ;;					 By: Paul Bartholomew
 ;;		 Update #: 27
 ;; URL:
@@ -126,6 +126,12 @@
 (require 'paren)
 (set-face-background 'show-paren-match (face-background 'hl-line))
 (set-face-attribute 'show-paren-match nil :weight 'ultra-bold)
+
+;; Highlight TODO, XXX, FIXME
+(defun my_highlight-todos ()
+	(font-lock-add-keywords nil
+													'(("\\<\\(TODO\\|XXX\\):" 1 font-lock-warning-face t))))
+(add-hook 'prog-mode-hook 'my_highlight-todos)
 
 ;; Auto-close parentheses
 (electric-pair-mode 1)
