@@ -7,9 +7,9 @@
 ;; Created: Tue Dec 13 09:11:59 2016 (+0000)
 ;; Version: 0.0
 ;; Package-Requires: ()
-;; Last-Updated: Mon Sep 18 23:31:58 2017 (+0100)
+;; Last-Updated: Sun Oct 22 19:25:58 2017 (+0100)
 ;;           By: Paul Bartholomew
-;;     Update #: 52
+;;     Update #: 53
 ;; URL:
 ;; Doc URL:
 ;; Keywords:
@@ -83,6 +83,7 @@
 (require 'my_python)  ; python configuration (uses anaconda-mode)
 (require 'my_cc)      ; C/C++ config
 (require 'my_fortran) ; FORTRAN config
+(require 'my_rst)     ; ReST config
 
 ;;=================================================================================================
 ;; evil should be configured last. Also configure keyboard bindings.

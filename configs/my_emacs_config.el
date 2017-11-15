@@ -7,7 +7,7 @@
 ;; Created: Wed Dec 14 22:23:03 2016 (+0000)
 ;; Version:
 ;; Package-Requires: ()
-;; Last-Updated: Sat Jan 21 13:52:54 2017 (+0000)
+;; Last-Updated: Sun Oct 15 16:30:35 2017 (+0100)
 ;;					 By: Paul Bartholomew
 ;;		 Update #: 27
 ;; URL:
@@ -157,6 +157,13 @@
 ;; Blink cursor forever
 ;(blink-cursor-mode -1) ; Zero or negative value blinks forever
 
+;; Disale cursor blink in docview mode
+(add-hook 'doc-view-mode
+					(lambda ()
+						(blink-cursor-mode 0)))
+(add-hook 'doc-view-mode 'doc-view-fit-width-to-window)
+(setq-default doc-view-resolution 300)
+
 ;;--------------------------------------------------------------------
 
 ;; Backups
@@ -206,6 +213,10 @@
 
 ;; helm
 ;(require 'helm-config)
+
+;;====================================================================
+;; File associations
+(add-to-list 'auto-mode-alist '("\\.cl\\'" . lisp-mode))
 
 (provide 'my_emacs_config)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
