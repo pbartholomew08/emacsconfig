@@ -83,6 +83,7 @@
 (require 'my_python)  ; python configuration (uses anaconda-mode)
 (require 'my_cc)      ; C/C++ config
 (require 'my_fortran) ; FORTRAN config
+(require 'my_rst)     ; ReST config
 
 ;;=================================================================================================
 ;; evil should be configured last. Also configure keyboard bindings.

@@ -1,25 +1,25 @@
-;;; my_clisp.el --- clisp config.
+;;; my_rst.el --- 
 ;; 
-;; Filename: my_clisp.el
-;; Description: Configuration file for common lisp.
+;; Filename: my_rst.el
+;; Description: Config for editing ReST files
 ;; Author: Paul Bartholomew
-;; Maintainer: Paul Bartholomew
-;; Created: Thu Dec 22 22:07:58 2016 (+0000)
-;; Version: 0.0
+;; Maintainer: 
+;; Created: Sun Oct 22 19:23:47 2017 (+0100)
+;; Version: 
 ;; Package-Requires: ()
-;; Last-Updated: Tue Oct 17 22:12:17 2017 (+0100)
+;; Last-Updated: Sun Oct 22 22:59:17 2017 (+0100)
 ;;           By: Paul Bartholomew
-;;     Update #: 20
-;; URL:
-;; Doc URL:
-;; Keywords:
-;; Compatibility:
+;;     Update #: 5
+;; URL: 
+;; Doc URL: 
+;; Keywords: 
+;; Compatibility: 
 ;; 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; 
-;;; Commentary:
+;;; Commentary: 
 ;; 
-;;  Configuration for common Lisp uses SLIME.
+;; 
 ;; 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; 
@@ -45,21 +45,17 @@
 ;; 
 ;;; Code:
 
-(setq-default slime-lisp-implementations
-							'(
-								(clisp ("clisp"))
-								(sbcl ("sbcl" "--core" "/home/paul/src/clisp/sbcl/sbcl.core-for-slime"))
-								))
-(setq-default slime-contribs '(slime-repl))
-
-(add-hook 'lisp-mode-hook 'auto-make-header)
-
-;; Automatically load SLIME
-(add-hook 'slime-mode-hook
+(add-hook 'rst-mode-hook
 					(lambda ()
-						(unless (slime-connected-p)
-							(save-excursion (slime)))))
+						(local-set-key (kbd "C-c C-c") 'compile)))
 
-(provide 'my_clisp)
+(add-hook 'rst-mode-hook
+					(lambda ()
+						(add-hook 'compilation-finish-functions
+											(lambda (buf str)
+												(if (null (string-match ".*exited abnormally.*" str))
+														(kill-buffer-and-window))))))
+
+(provide 'my_rst)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;; my_clisp.el ends here
+;;; my_rst.el ends here
