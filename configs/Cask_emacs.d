@@ -7,6 +7,7 @@
 (depends-on "company")
 (depends-on "company-anaconda")
 (depends-on "company-auctex")
+(depends-on "company-bibtex")
 (depends-on "dash")
 (depends-on "diff-hl")
 (depends-on "evil")

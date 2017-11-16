@@ -7,9 +7,9 @@
 ;; Created: Sat Dec 17 19:50:11 2016 (+0000)
 ;; Version: 0.0
 ;; Package-Requires: ()
-;; Last-Updated: Tue Sep 19 15:32:52 2017 (+0100)
-;;           By: Paul Bartholomew
-;;     Update #: 43
+;; Last-Updated: Thu Nov 16 16:23:53 2017 (+0000)
+;;           By: Paul
+;;     Update #: 45
 ;; URL:
 ;; Doc URL:
 ;; Keywords:
@@ -73,6 +73,13 @@
 ;; Enable auto-completion
 (require 'company-auctex)
 (company-auctex-init)
+(require 'company-bibtex)
+(add-to-list 'company-backends
+						 'company-bibtex)
+(setq company-bibtex-bibliography
+			'(
+				"~/Documents/Postdoc.bib"
+				))
 
 ;; Enable rainbow-delimiters
 (add-hook 'LaTeX-mode-hook 'rainbow-delimiters-mode)
