@@ -7,9 +7,9 @@
 ;; Created: Tue Dec 13 09:11:59 2016 (+0000)
 ;; Version: 0.0
 ;; Package-Requires: ()
-;; Last-Updated: Mon Sep 18 23:31:58 2017 (+0100)
-;;           By: Paul Bartholomew
-;;     Update #: 52
+;; Last-Updated: Fri Sep 29 14:01:17 2017 (+0100)
+;;           By: Paul
+;;     Update #: 53
 ;; URL:
 ;; Doc URL:
 ;; Keywords:
@@ -97,7 +97,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:family "DejaVu Sans Mono for Powerline" :foundry "unknown" :slant normal :weight normal :height 98 :width normal))))
+ '(default ((t (:family "DejaVu Sans Mono" :foundry "unknown" :slant normal :weight normal :height 98 :width normal))))
  '(writegood-duplicates-face ((t (:foreground "deep pink" :weight bold))))
  '(writegood-passive-voice-face ((t (:foreground "cyan" :weight bold))))
  '(writegood-weasels-face ((t (:foreground "dark orange" :weight bold)))))
