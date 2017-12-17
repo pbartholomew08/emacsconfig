@@ -7,9 +7,9 @@
 ;; Created: Wed Dec 14 22:16:58 2016 (+0000)
 ;; Version: 0.0
 ;; Package-Requires: ()
-;; Last-Updated: Sun Dec 17 16:59:16 2017 (+0000)
+;; Last-Updated: Sun Dec 17 18:52:05 2017 (+0000)
 ;;           By: Paul Bartholomew
-;;     Update #: 66
+;;     Update #: 67
 ;; URL:
 ;; Doc URL:
 ;; Keywords:
@@ -77,7 +77,7 @@
 (setq-default org-capture-templates
 							'(("n" "Note" plain (file+datetree "notes.org")
 								 "%U %?\nContext: %A")
-								("p" "Post-Doc ToDo" plain (file+datetree "~/Documents/postdoc/org/todo.org")
+								("p" "Post-Doc ToDo" plain (file+headline "~/Documents/postdoc/org/todo.org" "Tasks")
 								 "* TODO %?\nCreated: %U\nContext: %A")
 								("P" "Post-Doc Note" plain (file+datetree "~/Documents/postdoc/org/notes.org.gpg")
 								 "%?\nContext: %A")
