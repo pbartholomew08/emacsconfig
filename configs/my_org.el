@@ -7,9 +7,9 @@
 ;; Created: Wed Dec 14 22:16:58 2016 (+0000)
 ;; Version: 0.0
 ;; Package-Requires: ()
-;; Last-Updated: Wed Feb  8 20:30:24 2017 (+0000)
+;; Last-Updated: Sun Dec 17 16:59:16 2017 (+0000)
 ;;           By: Paul Bartholomew
-;;     Update #: 57
+;;     Update #: 66
 ;; URL:
 ;; Doc URL:
 ;; Keywords:
@@ -58,6 +58,8 @@
 (setq-default org-fast-tag-selection-include-todo t) ; Enable fast access of TODO states
 (setq-default org-startup-indented t)                ; Enable indented mode by default
 
+;; Enable BibTeX
+
 ;; linum-mode does not work well in org-mode
 (add-hook 'org-mode-hook
           (lambda ()
@@ -75,8 +77,13 @@
 (setq-default org-capture-templates
 							'(("n" "Note" plain (file+datetree "notes.org")
 								 "%U %?\nContext: %A")
+								("p" "Post-Doc ToDo" plain (file+datetree "~/Documents/postdoc/org/todo.org")
+								 "* TODO %?\nCreated: %U\nContext: %A")
+								("P" "Post-Doc Note" plain (file+datetree "~/Documents/postdoc/org/notes.org.gpg")
+								 "%?\nContext: %A")
 								("t" "ToDo" entry (file+headline "todo.org" "Tasks")
-								 "* TODO %?\nCreated: %U\nContext: %A")))
+								 "* TODO %?\nCreated: %U\nContext: %A")
+								))
 
 ;; Attachments
 (setq-default org-attach-method 'lns)
