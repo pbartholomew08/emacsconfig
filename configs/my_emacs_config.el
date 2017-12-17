@@ -7,7 +7,7 @@
 ;; Created: Wed Dec 14 22:23:03 2016 (+0000)
 ;; Version:
 ;; Package-Requires: ()
-;; Last-Updated: Fri Oct 20 14:09:27 2017 (+0100)
+;; Last-Updated: Sat Dec 16 18:48:46 2017 (+0000)
 ;;					 By: Paul Bartholomew
 ;;		 Update #: 27
 ;; URL:
@@ -219,6 +219,11 @@
 
 ;; helm
 ;(require 'helm-config)
+
+;; EasyPG
+;; Enables encryption
+(require 'epa-file)
+(epa-file-enable)
 
 ;;====================================================================
 ;; File associations
