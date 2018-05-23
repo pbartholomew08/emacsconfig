@@ -45,20 +45,26 @@
 ;; 
 ;;; Code:
 
+;; SLIME config
 (setq-default slime-lisp-implementations
 							'(
-								(clisp ("clisp"))
 								(sbcl ("sbcl" "--core" "/home/paul/src/clisp/sbcl/sbcl.core-for-slime"))
+                (ccl ("ccl64"))
+								(clisp ("clisp"))
 								))
 (setq-default slime-contribs '(slime-repl))
+(add-hook 'slime-repl-mode-hook
+					(lambda ()
+						(evil-local-mode -1)))
+
+
+;; ;; Automatically load SLIME
+;; (add-hook 'slime-mode-hook
+;; 					(lambda ()
+;; 						(unless (slime-connected-p)
+;; 							(save-excursion (slime)))))
 
 (add-hook 'lisp-mode-hook 'auto-make-header)
-
-;; Automatically load SLIME
-(add-hook 'slime-mode-hook
-					(lambda ()
-						(unless (slime-connected-p)
-							(save-excursion (slime)))))
 
 (provide 'my_clisp)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
