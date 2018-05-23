@@ -7,9 +7,9 @@
 ;; Created: Wed Dec 14 22:16:58 2016 (+0000)
 ;; Version: 0.0
 ;; Package-Requires: ()
-;; Last-Updated: Sun Dec 17 18:52:05 2017 (+0000)
+;; Last-Updated: Tue May 22 11:25:58 2018 (+0100)
 ;;           By: Paul Bartholomew
-;;     Update #: 67
+;;     Update #: 71
 ;; URL:
 ;; Doc URL:
 ;; Keywords:
@@ -48,7 +48,8 @@
 
 ;; Basic customisation
 (setq-default org-directory "~/org/")
-(setq-default org-agenda-files '("~/org/"))
+(setq-default org-agenda-files '("~/org/"
+																 "~/Documents/org/"))
 (global-set-key (kbd "C-c l") 'org-store-link)
 (global-set-key (kbd "C-c a") 'org-agenda)
 (global-set-key (kbd "C-c b") 'org-iswitchb)
@@ -57,6 +58,8 @@
 (setq-default org-log-done 'time)                    ; Track time when tasks complete
 (setq-default org-fast-tag-selection-include-todo t) ; Enable fast access of TODO states
 (setq-default org-startup-indented t)                ; Enable indented mode by default
+(setq-default org-hide-emphasis-markers t)           ; Hides // ** etc.
+(setq-default org-pretty-entities t)                 ; Pretty print \rho using UTF8
 
 ;; Enable BibTeX
 
@@ -98,6 +101,11 @@
 (eval-after-load 'org
 	'(setf org-highlight-latex-and-related '(latex))
 	)
+
+;; Better looking bullets
+(require 'org-bullets)
+(add-hook 'org-mode-hook (lambda ()
+													 (org-bullets-mode t)))
 
 (provide 'my_org)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
