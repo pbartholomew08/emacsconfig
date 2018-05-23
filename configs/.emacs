@@ -7,9 +7,9 @@
 ;; Created: Tue Dec 13 09:11:59 2016 (+0000)
 ;; Version: 0.0
 ;; Package-Requires: ()
-;; Last-Updated: Tue Nov 21 17:01:26 2017 (+0000)
+;; Last-Updated: Thu Apr 12 11:43:45 2018 (+0100)
 ;;           By: Paul Bartholomew
-;;     Update #: 54
+;;     Update #: 55
 ;; URL:
 ;; Doc URL:
 ;; Keywords:
@@ -109,4 +109,4 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
 	 (quote
-		(company-bibtex writegood-mode spacemacs-theme solarized-theme slime-company rainbow-delimiters pallet magit helm header2 flycheck-pos-tip evil diff-hl company-auctex company-anaconda))))
+		(paredit company-bibtex writegood-mode spacemacs-theme solarized-theme slime-company rainbow-delimiters pallet magit helm header2 flycheck-pos-tip evil diff-hl company-auctex company-anaconda))))
