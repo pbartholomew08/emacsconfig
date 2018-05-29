@@ -7,9 +7,9 @@
 ;; Created: Wed Dec 14 22:16:58 2016 (+0000)
 ;; Version: 0.0
 ;; Package-Requires: ()
-;; Last-Updated: Wed May 23 16:36:44 2018 (+0100)
+;; Last-Updated: Thu May 24 11:28:01 2018 (+0100)
 ;;           By: Paul Bartholomew
-;;     Update #: 73
+;;     Update #: 76
 ;; URL:
 ;; Doc URL:
 ;; Keywords:
@@ -88,6 +88,8 @@
 								 "* TODO %?\nCreated: %U\nContext: %A")
 								("s" "Someday / Maybe" plain (file "someday.org")
 								 "* %?\nCreated: %U\nContext: %A")
+								("l" "Log" plain (file+datetree "log.org")
+								 "%?\nContext: %A")
 								))
 
 ;; Attachments
