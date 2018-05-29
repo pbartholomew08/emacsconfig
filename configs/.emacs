@@ -7,9 +7,9 @@
 ;; Created: Tue Dec 13 09:11:59 2016 (+0000)
 ;; Version: 0.0
 ;; Package-Requires: ()
-;; Last-Updated: Tue May 29 11:32:01 2018 (+0100)
+;; Last-Updated: Tue May 29 11:33:30 2018 (+0100)
 ;;           By: Paul Bartholomew
-;;     Update #: 57
+;;     Update #: 59
 ;; URL:
 ;; Doc URL:
 ;; Keywords:
@@ -90,9 +90,6 @@
 (require 'my_kbd)
 (require 'my_evil) ; Evil mode configuration file
 
-(provide '.emacs)
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;; .emacs ends here
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -116,3 +113,7 @@
 						 company-auctex company-anaconda)))
  '(user-full-name "Paul Bartholomew")
  '(user-mail-address "paul.bartholomew08@imperial.ac.uk"))
+
+(provide '.emacs)
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; .emacs ends here
