@@ -7,9 +7,9 @@
 ;; Created: Tue Dec 13 09:11:59 2016 (+0000)
 ;; Version: 0.0
 ;; Package-Requires: ()
-;; Last-Updated: Thu May 24 09:57:20 2018 (+0100)
+;; Last-Updated: Tue May 29 11:32:01 2018 (+0100)
 ;;           By: Paul Bartholomew
-;;     Update #: 56
+;;     Update #: 57
 ;; URL:
 ;; Doc URL:
 ;; Keywords:
@@ -98,8 +98,9 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:family "DejaVu Sans Mono" :foundry "unknown" :slant normal :weight normal :height
-												98 :width normal))))
+ '(default ((t (:family "DejaVu Sans Mono" :foundry "unknown"
+												:slant normal :weight normal :height 98
+												:width normal))))
  '(writegood-duplicates-face ((t (:foreground "deep pink" :weight bold))))
  '(writegood-passive-voice-face ((t (:foreground "cyan" :weight bold))))
  '(writegood-weasels-face ((t (:foreground "dark orange" :weight bold)))))
