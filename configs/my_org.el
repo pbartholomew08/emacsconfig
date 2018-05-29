@@ -7,9 +7,9 @@
 ;; Created: Wed Dec 14 22:16:58 2016 (+0000)
 ;; Version: 0.0
 ;; Package-Requires: ()
-;; Last-Updated: Tue May 22 11:25:58 2018 (+0100)
+;; Last-Updated: Thu May 24 11:28:01 2018 (+0100)
 ;;           By: Paul Bartholomew
-;;     Update #: 71
+;;     Update #: 76
 ;; URL:
 ;; Doc URL:
 ;; Keywords:
@@ -86,6 +86,8 @@
 								 "%?\nContext: %A")
 								("t" "ToDo" entry (file+headline "todo.org" "Tasks")
 								 "* TODO %?\nCreated: %U\nContext: %A")
+								("l" "Log" plain (file+datetree "log.org")
+								 "%?\nContext: %A")
 								))
 
 ;; Attachments
