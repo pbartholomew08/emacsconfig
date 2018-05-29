@@ -7,9 +7,9 @@
 ;; Created: Wed Dec 14 22:16:58 2016 (+0000)
 ;; Version: 0.0
 ;; Package-Requires: ()
-;; Last-Updated: Tue May 22 11:25:58 2018 (+0100)
+;; Last-Updated: Wed May 23 16:36:44 2018 (+0100)
 ;;           By: Paul Bartholomew
-;;     Update #: 71
+;;     Update #: 73
 ;; URL:
 ;; Doc URL:
 ;; Keywords:
@@ -86,6 +86,8 @@
 								 "%?\nContext: %A")
 								("t" "ToDo" entry (file+headline "todo.org" "Tasks")
 								 "* TODO %?\nCreated: %U\nContext: %A")
+								("s" "Someday / Maybe" plain (file "someday.org")
+								 "* %?\nCreated: %U\nContext: %A")
 								))
 
 ;; Attachments
@@ -106,6 +108,9 @@
 (require 'org-bullets)
 (add-hook 'org-mode-hook (lambda ()
 													 (org-bullets-mode t)))
+
+;; Pomodoro
+(require 'org-pomodoro)
 
 (provide 'my_org)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
