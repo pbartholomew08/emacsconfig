@@ -78,6 +78,7 @@
 ;; Language-specific configurations
 (require 'my_elisp)   ; elisp configuration file
 (require 'my_clisp)   ; common lisp configuration
+(require 'my_scheme)  ; scheme configuration
 (require 'my_LaTeX)   ; LaTeX configuration
 (require 'my_org)     ; Org-mode configuration file
 (require 'my_python)  ; python configuration (uses anaconda-mode)

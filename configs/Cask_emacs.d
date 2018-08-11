@@ -16,6 +16,7 @@
 (depends-on "f")
 (depends-on "flycheck")
 (depends-on "flycheck-pos-tip")
+(depends-on "geiser")
 (depends-on "ghub")
 (depends-on "git-commit")
 (depends-on "goto-chg")
