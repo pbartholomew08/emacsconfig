@@ -7,9 +7,9 @@
 ;; Created: Tue Dec 13 09:11:59 2016 (+0000)
 ;; Version: 0.0
 ;; Package-Requires: ()
-;; Last-Updated: Tue May 29 11:33:30 2018 (+0100)
+;; Last-Updated: Wed Jun 20 13:25:09 2018 (+0100)
 ;;           By: Paul Bartholomew
-;;     Update #: 59
+;;     Update #: 60
 ;; URL:
 ;; Doc URL:
 ;; Keywords:
@@ -101,7 +101,8 @@
 												:width normal))))
  '(writegood-duplicates-face ((t (:foreground "deep pink" :weight bold))))
  '(writegood-passive-voice-face ((t (:foreground "cyan" :weight bold))))
- '(writegood-weasels-face ((t (:foreground "dark orange" :weight bold)))))
+ '(writegood-weasels-face ((t (:foreground "dark orange" :weight bold))))
+ '(magit-section-highlight ((((type tty)) nil))))
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

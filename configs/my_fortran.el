@@ -7,9 +7,9 @@
 ;; Created: Mon Sep 18 23:27:52 2017 (+0100)
 ;; Version: 0.0
 ;; Package-Requires: ()
-;; Last-Updated: Fri Sep 29 16:44:11 2017 (+0100)
-;;           By: Paul
-;;     Update #: 5
+;; Last-Updated: Thu Mar 29 11:19:40 2018 (+0100)
+;;           By: Paul Bartholomew
+;;     Update #: 9
 ;; URL:
 ;; Doc URL:
 ;; Keywords:
@@ -59,9 +59,9 @@
 (add-hook 'f90-mode-hook 'my_fortran_keybindings)
 (add-hook 'f90-mode-hook
 					(lambda ()
-						(setq f90-do-indent 2 ; Default is 3
-									f90-if-indent 2 ; Default is 3
-									)
+						;; (setq f90-do-indent 2 ; Default is 3
+						;; 			f90-if-indent 2 ; Default is 3
+						;; 			)
 						(if f90-auto-keyword-case
 								(f90-change-keywords f90-auto-keyword-case))))
 (setq-default flycheck-fortran-gfortran-executable "mpif90") ; Prevents "Cannot find MPI errors"
