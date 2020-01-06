@@ -56,15 +56,6 @@
 ;; just comment it out by adding a semicolon to the start of the line.
 ;; You may delete these explanatory comments.
 (package-initialize)
- 
-;;====================================================================
-;; Cask and pallet: better package management
-
-(require 'cask "/home/paul/.cask/cask.el")
-(cask-initialize)
-
-(require 'pallet)
-(pallet-mode t)
 
 ;;====================================================================
 ;; Load my configs
