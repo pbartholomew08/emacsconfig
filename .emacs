@@ -113,12 +113,10 @@ There are two things you can do about this warning:
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-	 (quote
-		(paredit company-bibtex writegood-mode spacemacs-theme solarized-theme slime-company
-						 rainbow-delimiters pallet magit helm header2 flycheck-pos-tip evil diff-hl
-						 company-auctex company-anaconda)))
+   (quote
+    (flycheck flycheck-pos-tip company rainbow-delimiters evil org-bullets spacemacs-theme)))
  '(user-full-name "Paul Bartholomew")
- '(user-mail-address "paul.bartholomew08@imperial.ac.uk"))
+ '(user-mail-address "p.bartholomew@epcc.ed.ac.uk"))
 
 (provide '.emacs)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
