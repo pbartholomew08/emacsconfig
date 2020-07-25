@@ -45,18 +45,16 @@
 ;; 
 ;;; Code:
 
-;; General
-(load "/usr/share/clang/clang-format.el")
-(add-hook 'c-mode-hook
-					(lambda ()
-						(local-set-key (kbd "C-S-f") 'clang-format-buffer)))
+(defun my_cc_keybindings ()
+  "Bind keys for C/C++ mode(s)."
+  (local-set-key (kbd "C-c C-C") 'compile))
+(add-hook 'c-mode-common-hook 'my_cc_keybindings)
+
 ;; C
-(add-hook 'c-mode-hook 'auto-make-header) ; Set create headers in new .c files automatically
 (setq-default c-default-style "bsd"
-							c-basic-offset 2)
+	      c-basic-offset 2)
 
 ;; C++
-(add-hook 'c++-mode-hook 'auto-make-header)
 
 (provide 'my_cc)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

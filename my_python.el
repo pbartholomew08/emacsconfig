@@ -51,15 +51,6 @@
 (eval-after-load "company"
   '(add-to-list 'company-backends 'company-anaconda))
 
-;; Fix that which python-mode breaks, namely indentation
-;; Use tabs to indent (because I'm not a barbarian)
-;; and have them display as two spaces wide.
-(add-hook 'python-mode-hook
-					(lambda ()
-						(setq indent-tabs-mode t)
-						(setq tab-width 2)
-						(setq python-indent-offset 2)))
-
 (provide 'my_python)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; my_python.el ends here

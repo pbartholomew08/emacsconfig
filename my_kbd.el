@@ -69,6 +69,12 @@
 ;; Enable whitespace-mode
 (global-set-key (kbd "C-c w") 'whitespace-mode)
 
+;; Rebind M-3 to hash symbol (for Mac's stupid keyboard layout)
+(global-set-key (kbd "M-3")
+		'(lambda ()
+		   (interactive)
+		   (insert "#")))
+
 (provide 'my_kbd)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; my_kbd.el ends here

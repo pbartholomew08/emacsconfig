@@ -51,8 +51,6 @@
 
 (add-hook 'emacs-lisp-mode-hook 'turn-on-eldoc-mode)
 
-(add-hook 'emacs-lisp-mode-hook 'auto-make-header) ; Set create headers in new .el files automatically
-
 (provide 'my_elisp)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; my_elisp.el ends here

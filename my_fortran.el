@@ -52,18 +52,13 @@
 	(local-set-key (kbd "C-c C-c") 'compile))
 
 ;; FORTRAN (F77)
-(add-hook 'fortran-mode-hook 'auto-make-header)
 
 ;; fortran (F90)
-(add-hook 'f90-mode-hook 'auto-make-header)
 (add-hook 'f90-mode-hook 'my_fortran_keybindings)
 (add-hook 'f90-mode-hook
-					(lambda ()
-						;; (setq f90-do-indent 2 ; Default is 3
-						;; 			f90-if-indent 2 ; Default is 3
-						;; 			)
-						(if f90-auto-keyword-case
-								(f90-change-keywords f90-auto-keyword-case))))
+	  (lambda ()
+	    (if f90-auto-keyword-case
+		(f90-change-keywords f90-auto-keyword-case))))
 (setq-default flycheck-fortran-gfortran-executable "mpif90") ; Prevents "Cannot find MPI errors"
 
 (provide 'my_fortran)

@@ -45,8 +45,9 @@
 ;; 
 ;;; Code:
 
-(setq-default geiser-default-implementation '(guile))
-(setq-default geiser-guile-binary "/home/paul/local/bin/guile")
+(add-hook 'scheme-mode-hook 'geiser-mode)
+(setq-default geiser-default-implementation 'guile)
+(setq-default geiser-guile-binary "/usr/local/bin/guile")
 
 (provide 'my_scheme)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

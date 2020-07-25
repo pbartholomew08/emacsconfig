@@ -96,11 +96,11 @@
 (defvar my-infoface-colour)
 (setq my-infoface-colour "darkolivegreen")
 (defface my-infoface
-	'((((class color))
-		 :foreground "darkolivegreen")
-	  (t :inverse-video t))
-	"Grab the colour of `flycheck-info' face."
-	:group 'basic-faces)
+  '((((class color))
+     :foreground "darkolivegreen")
+    (t :inverse-video t))
+  "Grab the colour of `flycheck-info' face."
+  :group 'basic-faces)
 
 ;(setq-default mode-line-format
 ;							'("%e"
@@ -113,7 +113,7 @@
 ;								(:eval (propertize "FOO" 'face 'my-infoface))
 ;								))
 (setq-default evil-mode-line-format
-			'(before . mode-line-front-space))
+	      '(before . mode-line-front-space))
 
 ;;====================================================================
 ;; Behaviours
@@ -129,8 +129,8 @@
 
 ;; Highlight TODO, XXX, FIXME
 (defun my_highlight-todos ()
-	(font-lock-add-keywords nil
-													'(("\\<\\(TODO\\|XXX\\):" 1 font-lock-warning-face t))))
+  (font-lock-add-keywords nil
+			  '(("\\<\\(TODO\\|XXX\\):" 1 font-lock-warning-face t))))
 (add-hook 'prog-mode-hook 'my_highlight-todos)
 
 ;; Auto-close parentheses
@@ -140,24 +140,24 @@
 (require 'rainbow-delimiters)
 (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
 
-;; Tabbing / indentation
-(setq-default indent-tabs-mode t)
-(setq-default tab-always-indent t)
-(setq-default tab-width 2)
+;; ;; Tabbing / indentation
+;; (setq-default indent-tabs-mode t)
+;; (setq-default tab-always-indent t)
+;; (setq-default tab-width 2)
 
 ;; enable mouse
 (unless window-system
-	(require 'mouse)
-	(xterm-mouse-mode t)
-	(defun track-mouse (e))
-	(setq-default mouse-sel-mode t))
+  (require 'mouse)
+  (xterm-mouse-mode t)
+  (defun track-mouse (e))
+  (setq-default mouse-sel-mode t))
 
 ;; electric indent
 (electric-indent-mode 1) ; Enable auto-indenting
 
 ;; Spell-check
 (setq-default ispell-program-name "aspell")
-(setq-default ispell-dictionary "english")
+(setq-default ispell-dictionary "british")
 (setq-default ispell-personal-dictionary "~/.my_dictionary")
 
 ;; Blink cursor forever
@@ -165,28 +165,16 @@
 
 ;; Disale cursor blink in docview mode
 (add-hook 'doc-view-mode
-					(lambda ()
-						(blink-cursor-mode 0)))
+	  (lambda ()
+	    (blink-cursor-mode 0)))
 (add-hook 'doc-view-mode 'doc-view-fit-width-to-window)
 (setq-default doc-view-resolution 300)
 
 ;;--------------------------------------------------------------------
 
-;; Backups
-(setq backup-directory-alist `(("." . "~/Documents/emacs_backups"))) ; Set the backup directory
-(setq backup-by-copying t) ; Create copies when backing up, helps dealing with symlinks, maybe slow in which case look at backup-by-copying-when-linked.
-(setq delete-old-versions t
-			kept-new-versions 6
-			kept-old-versions 2
-			version-control t) ; Maintain a set of version controlled backups
-
-;; Autosave
-(setq auto-save-file-name-transforms
-			`((".*" "~/Documents/emacs_autosave/" t))) ; Send autosaves to ~/BACKUPS/emacs/
-
-;; Save history
-(savehist-mode t)
-(setq-default savehist-file "~/.emacs_history")
+;; Disable backups and autosave
+(setq make-backup-files nil)
+(setq auto-save-default nil)
 
 ;; Delete trailing-whitespace
 ;(add-hook 'before-save-hook 'delete-trailing-whitespace)
@@ -200,29 +188,24 @@
 (setq company-idle-delay 0.1)
 (setq company-minimum-prefix-length 2)
 (setq company-backends
-			(remove 'company-dabbrev company-backends)) ; dabbrev is annoying!
+      (remove 'company-dabbrev company-backends)) ; dabbrev is annoying!
 
 ;; flycheck
 (require 'flycheck)
 (global-flycheck-mode)
 (setq-default flycheck-emacs-lisp-load-path 'inherit) ; This should prevent "I can't find this file" errors/warnings
 (with-eval-after-load 'flycheck
-	(flycheck-pos-tip-mode))
+  (flycheck-pos-tip-mode))
 
 ;; flyspell
 (setq-default ispell-dictionary "british")
-
-;; header2 auto-insert and update headers
-(autoload 'auto-update-file-header "header2") ;; Auto-update headers
-(add-hook 'write-file-hooks 'auto-update-file-header)
-(autoload 'auto-make-header "header2") ; Auto-create headers in new files
 
 ;; helm
 ;(require 'helm-config)
 
 ;; EasyPG
 ;; Enables encryption
-(require 'epa-file)
+;; (require 'epa-file)
 (epa-file-enable)
 
 ;;====================================================================

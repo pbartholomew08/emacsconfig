@@ -75,11 +75,11 @@
 (company-auctex-init)
 (require 'company-bibtex)
 (add-to-list 'company-backends
-						 'company-bibtex)
+	     'company-bibtex)
 (setq company-bibtex-bibliography
-			'(
-				"~/Documents/Postdoc.bib"
-				))
+      '(
+	"~/OneDrive - University of Edinburgh/Documents/Bibliography/library.bib"
+	))
 
 ;; Enable rainbow-delimiters
 (add-hook 'LaTeX-mode-hook 'rainbow-delimiters-mode)
@@ -88,21 +88,21 @@
 (server-mode) ; Enables two-way code-pdf search
 (setq LaTeX-command "latex -synctex=1")
 (setq-default TeX-view-program-list
-      '(("okular" "okular --unique %o#src:%n%b")))
+	      '(("okular" "okular --unique %o#src:%n%b")))
 (setq TeX-view-program-selection
       '((output-pdf "okular")))
 
 ;; Add nomencl build
 (eval-after-load "tex"
-	'(add-to-list 'TeX-command-list
-								'("Nomenclature" "makeindex %s.nlo -s nomencl.ist -o %s.nls"
-									TeX-run-command nil t :help "Create nomenclature file")))
+  '(add-to-list 'TeX-command-list
+		'("Nomenclature" "makeindex %s.nlo -s nomencl.ist -o %s.nls"
+		  TeX-run-command nil t :help "Create nomenclature file")))
 
 ;; RefTeX integration
 (add-hook 'LaTeX-mode-hook 'turn-on-reftex)
 (setq-default reftex-plug-into-AUCTeX t)
 (setq-default reftex-default-bibliography
-			'("~/Documents/BvWResearch-Zotero.bib"))
+	      '("~/OneDrive - University of Edinburgh/Documents/Bibliography/library.bib"))
 
 ;; RefTeX speedups
 (setq-default reftex-enable-partial-scans t)
@@ -112,21 +112,18 @@
 
 ;; Enable reftex in org-mode
 (defun org-mode-reftex-setup ()
-	(load-library "reftex")
-	(and (buffer-file-name)
-			 (file-exists-p (buffer-file-name))
-			 (reftex-parse-all))
-	(define-key org-mode-map (kbd "C-c (") 'reftex-citation))
+  (load-library "reftex")
+  (and (buffer-file-name)
+       (file-exists-p (buffer-file-name))
+       (reftex-parse-all))
+  (define-key org-mode-map (kbd "C-c (") 'reftex-citation))
 (add-hook 'org-mode-hook 'org-mode-reftex-setup)
 
-;; Writegood-mode, highlights poor English
-(require 'writegood-mode)
-(add-hook 'LaTeX-mode-hook
-					(lambda ()
-						(local-set-key (kbd "C-c g") 'writegood-mode)))
-
-;; Add a header automatically
-(add-hook 'LaTeX-mode-hook 'auto-make-header)
+;; ;; Writegood-mode, highlights poor English
+;; (require 'writegood-mode)
+;; (add-hook 'LaTeX-mode-hook
+;; 	  (lambda ()
+;; 	    (local-set-key (kbd "C-c g") 'writegood-mode)))
 
 (provide 'my_LaTeX)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
