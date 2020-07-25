@@ -72,23 +72,22 @@ There are two things you can do about this warning:
 
 ;;====================================================================
 ;; Load my configs
-(add-to-list 'load-path "~/src/my_emacspackages/configs")
-(add-to-list 'load-path "~/src/elisp")
+(add-to-list 'load-path "~/src/elisp/emacsconfig")
 
 ;; General configurations
 (require 'my_emacs_config) ; Basic emacs configuration file
-(require 'my_versioncontrol) ; Version-control configuration
+;; (require 'my_versioncontrol) ; Version-control configuration
 
 ;; Language-specific configurations
 (require 'my_elisp)   ; elisp configuration file
-(require 'my_clisp)   ; common lisp configuration
+;; (require 'my_clisp)   ; common lisp configuration
 (require 'my_scheme)  ; scheme configuration
 (require 'my_LaTeX)   ; LaTeX configuration
 (require 'my_org)     ; Org-mode configuration file
 (require 'my_python)  ; python configuration (uses anaconda-mode)
 (require 'my_cc)      ; C/C++ config
 (require 'my_fortran) ; FORTRAN config
-(require 'my_rst)     ; ReST config
+;; (require 'my_rst)     ; ReST config
 
 ;;====================================================================
 ;; evil should be configured last. Also configure keyboard bindings.
@@ -100,12 +99,6 @@ There are two things you can do about this warning:
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:family "DejaVu Sans Mono" :foundry "unknown"
-												:slant normal :weight normal :height 98
-												:width normal))))
- '(writegood-duplicates-face ((t (:foreground "deep pink" :weight bold))))
- '(writegood-passive-voice-face ((t (:foreground "cyan" :weight bold))))
- '(writegood-weasels-face ((t (:foreground "dark orange" :weight bold))))
  '(magit-section-highlight ((((type tty)) nil))))
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -114,7 +107,51 @@ There are two things you can do about this warning:
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (flycheck flycheck-pos-tip company rainbow-delimiters evil org-bullets spacemacs-theme)))
+    (gnuplot company-auctex company-bibtex auctex org-ref yaml-mode geiser anaconda-mode slime org-pomodoro diff-hl flycheck flycheck-pos-tip company rainbow-delimiters magit evil org-bullets spacemacs-theme)))
+ '(safe-local-variable-values
+   (quote
+    ((eval setq flycheck-gcc-include-path
+	   (concat
+	    (file-name-as-directory
+	     (locate-dominating-file default-directory ".dir-locals.el"))
+	    "include"))
+     (eval setq flycheck-gcc-include-path
+	   (list
+	    (concat
+	     (file-name-as-directory
+	      (locate-dominating-file default-directory ".dir-locals.el"))
+	     "include")))
+     (eval setq flycheck-gcc-include-path
+	   (list
+	    (concat
+	     (file-name-as-directory
+	      (locate-dominating-file default-directory ".dir-locals.el")
+	      "include"))))
+     (eval setq-local flycheck-gcc-include-path
+	   (list
+	    (concat
+	     (file-name-as-directory
+	      (locate-dominating-file default-directory ".dir-locals.el")
+	      "include"))))
+     (eval add-to-list
+	   (quote auto-mode-alist)
+	   (quote
+	    ("\\.h\\'" . c++-mode)))
+     (eval setq fortran-comment-indent-style
+	   (quote relative))
+     (eval setq flycheck-gfortran-language-standard "f2003")
+     (eval setq flycheck-gfortran-include-path
+	   (list
+	    (file-name-directory
+	     (let
+		 ((d
+		   (dir-locals-find-file ".")))
+	       (if
+		   (stringp d)
+		   d
+		 (car d))))))
+     (eval setq flycheck-fortran-args "-fcray-pointer -cpp")
+     (eval setq flycheck-fortran-gfortran-executable "mpif90"))))
  '(user-full-name "Paul Bartholomew")
  '(user-mail-address "p.bartholomew@epcc.ed.ac.uk"))
 
