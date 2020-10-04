@@ -163,12 +163,15 @@
 ;; Blink cursor forever
 ;(blink-cursor-mode -1) ; Zero or negative value blinks forever
 
-;; Disale cursor blink in docview mode
+;; Disable cursor blink in docview mode
 (add-hook 'doc-view-mode
 	  (lambda ()
 	    (blink-cursor-mode 0)))
 (add-hook 'doc-view-mode 'doc-view-fit-width-to-window)
 (setq-default doc-view-resolution 300)
+
+;; Don't beep!
+(setq ring-bell-function 'ignore)
 
 ;;--------------------------------------------------------------------
 
