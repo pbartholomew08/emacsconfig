@@ -45,6 +45,8 @@
 ;; 
 ;;; Code:
 
+(add-hook 'lisp-mode-hook 'prettify-symbols-mode)
+
 ;; SLIME config
 (setq-default slime-lisp-implementations
 	      '(

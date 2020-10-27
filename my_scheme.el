@@ -46,6 +46,7 @@
 ;;; Code:
 
 (add-hook 'scheme-mode-hook 'geiser-mode)
+(add-hook 'scheme-mode-hook 'prettify-symbols-mode)
 (setq-default geiser-default-implementation 'guile)
 (setq-default geiser-guile-binary
 	      (cond ((string-equal system-type "darwin")
