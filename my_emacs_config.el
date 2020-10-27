@@ -29,8 +29,8 @@
 ;;; Change Log:
 ;;
 ;; [14-Dec-2016] Moving backup and autosave directories to
-;;							 ~/Documents/emacs_backups/ and
-;;							 ~/Documents/emacs_autosave/ respectively.
+;;   ~/Documents/emacs_backups/ and
+;;   ~/Documents/emacs_autosave/ respectively.
 ;; [14-Dec-2016] Moving old emacs_appearance.el and emacs_behaviour.el
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -70,6 +70,10 @@
 (load-theme 'spacemacs-dark t)
 
 ;;--------------------------------------------------------------------
+;; Font
+(add-to-list 'default-frame-alist
+	     '(font . "Hack-10"))
+;;--------------------------------------------------------------------
 ;; Tweaks
 
 ;; Line highlighting
@@ -102,16 +106,16 @@
   "Grab the colour of `flycheck-info' face."
   :group 'basic-faces)
 
-;(setq-default mode-line-format
-;							'("%e"
-;								mode-line-front-space
-;								(:eval (propertize "(%m) " 'face 'bold))
-;								mode-line-buffer-identification " "
-;								mode-line-modified
-;								" %l:%c |"
-;								flycheck-mode-line
-;								(:eval (propertize "FOO" 'face 'my-infoface))
-;								))
+;; (setq-default mode-line-format
+;; 	      '("%e"
+;; 		mode-line-front-space
+;; 		(:eval (propertize "(%m) " 'face 'bold))
+;; 		mode-line-buffer-identification " "
+;; 		mode-line-modified
+;; 		" %l:%c |"
+;; 		flycheck-mode-line
+;; 		(:eval (propertize "FOO" 'face 'my-infoface))
+;; 		))
 (setq-default evil-mode-line-format
 	      '(before . mode-line-front-space))
 

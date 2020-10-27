@@ -1,23 +1,23 @@
-;;; my_scheme.el --- 
+;;; my_scheme.el --- scheme settings
 ;; 
 ;; Filename: my_scheme.el
-;; Description: 
+;; Description:
 ;; Author: Paul Bartholomew
-;; Maintainer: 
+;; Maintainer:
 ;; Created: Sun Aug  5 19:49:45 2018 (+0100)
-;; Version: 
+;; Version:
 ;; Package-Requires: ()
 ;; Last-Updated: Sat Aug 11 15:44:01 2018 (+0100)
 ;;           By: Paul Bartholomew
 ;;     Update #: 4
-;; URL: 
-;; Doc URL: 
-;; Keywords: 
-;; Compatibility: 
+;; URL:
+;; Doc URL:
+;; Keywords:
+;; Compatibility:
 ;; 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; 
-;;; Commentary: 
+;;; Commentary:
 ;; 
 ;; 
 ;; 
@@ -47,7 +47,11 @@
 
 (add-hook 'scheme-mode-hook 'geiser-mode)
 (setq-default geiser-default-implementation 'guile)
-(setq-default geiser-guile-binary "/usr/local/bin/guile")
+(setq-default geiser-guile-binary
+	      (cond ((string-equal system-type "darwin")
+		     "/usr/local/bin/guile")
+		    ((string-equal system-type "gnu/linux")
+		     "/bin/guile")))
 
 (provide 'my_scheme)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

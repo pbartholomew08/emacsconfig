@@ -47,15 +47,15 @@
 
 ;; SLIME config
 (setq-default slime-lisp-implementations
-							'(
-								(sbcl ("sbcl" "--core" "/home/paul/src/clisp/sbcl/sbcl.core-for-slime"))
+	      '(
+		(sbcl ("sbcl" "--core" "/home/paul/src/clisp/sbcl/sbcl.core-for-slime"))
                 (ccl ("ccl64"))
-								(clisp ("clisp"))
-								))
+		(clisp ("clisp"))
+		))
 (setq-default slime-contribs '(slime-repl))
 (add-hook 'slime-repl-mode-hook
-					(lambda ()
-						(evil-local-mode -1)))
+	  (lambda ()
+	    (evil-local-mode -1)))
 
 
 ;; ;; Automatically load SLIME
