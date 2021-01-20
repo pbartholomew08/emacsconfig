@@ -66,8 +66,6 @@
 ;; 						(unless (slime-connected-p)
 ;; 							(save-excursion (slime)))))
 
-(add-hook 'lisp-mode-hook 'auto-make-header)
-
 (provide 'my_clisp)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; my_clisp.el ends here
