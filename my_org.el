@@ -110,6 +110,20 @@
 		   ((string-equal system-type "gnu/linux")
 		    (add-to-list 'org-file-apps '("\\.pdf\\'" . "okular %s"))))))
 
+(require 'ox-latex)
+(add-to-list 'org-latex-packages-alist '("" "listings"))
+(add-to-list 'org-latex-packages-alist '("dvipsnames" "xcolor"))
+(setq org-latex-listings t)
+(setq org-latex-listings-options
+      '(("basicstyle" "\\tiny")
+	("frame" "single")
+	("backgroundcolor" "\\color{Goldenrod!30}")
+	("commentstyle" "\\color{cyan}\\ttfamily")
+	("showstringspaces" "false")))
+(add-to-list 'org-latex-listings-langs '(f90 "[90]Fortran"))
+(setq-default org-latex-caption-above '(table
+					src-block))
+
 ;; Highlight LaTeX
 (eval-after-load 'org
   '(setf org-highlight-latex-and-related '(latex)))
