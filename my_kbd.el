@@ -60,10 +60,10 @@
 
 ;; Indent buffer
 (defun my_indent-buffer ()
-	"Use `indent-region between' `point-min' and `point-max' to indent/format whole buffer."
-	(interactive)
-	(save-excursion
-		(indent-region (point-min) (point-max) nil)))
+  "Use `indent-region between' `point-min' and `point-max' to indent/format whole buffer."
+  (interactive)
+  (save-excursion
+    (indent-region (point-min) (point-max) nil)))
 (global-set-key (kbd "C-S-f") 'my_indent-buffer)
 
 ;; Enable whitespace-mode
