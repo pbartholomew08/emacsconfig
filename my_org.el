@@ -179,6 +179,13 @@
 			 :follow 'org-custom-link-img-follow
 			 :export 'org-custom-link-img-export)
 
+;; org-roam
+(require 'org-roam)
+(setq org-roam-directory "~/org-roam")
+(setq org-roam-graph-viewer
+      (cond ((string-equal system-type "darwin")
+	     "/Applications/Firefox.app/Contents/MacOS/firefox")))
+(add-hook 'after-init-hook 'org-roam-mode)
 
 (provide 'my_org)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
