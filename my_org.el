@@ -63,6 +63,7 @@
 (setq-default org-pretty-entities t)                 ; Pretty print \rho using UTF8
 (setq-default org-refile-use-outline-path "full-file-path") ; Refile using a file-path
 (setq-default org-export-with-smart-quotes t)        ; Do the right thing with apostrophes
+(setq-default org-startup-folded t)                  ; Show overview, not EVERYTHING on startup
 
 ;; Set LaTeX compiler
 (setq org-latex-pdf-process (list "latexmk -f -pdf %f"))
