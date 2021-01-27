@@ -186,6 +186,12 @@
 (setq org-roam-graph-viewer
       (cond ((string-equal system-type "darwin")
 	     "/Applications/Firefox.app/Contents/MacOS/firefox")))
+(setq org-roam-capture-templates
+      '(("d" "default" plain (function org-roam--capture-get-point)
+	 "%?"
+	 :file-name "%<%Y%m%d%H%M>"
+	 :head "#+TITLE: ${title}\n"
+	 :unnarrowed t)))
 (add-hook 'after-init-hook 'org-roam-mode)
 
 (provide 'my_org)
