@@ -71,8 +71,10 @@
 
 ;;--------------------------------------------------------------------
 ;; Font
-(add-to-list 'default-frame-alist
-	     '(font . "Hack-10"))
+(cond ((string-equal system-type "gnu/linux")
+       (add-to-list 'default-frame-alist
+		    '(font . "Hack-10"))))
+
 ;;--------------------------------------------------------------------
 ;; Tweaks
 
