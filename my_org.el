@@ -64,7 +64,7 @@
 (setq-default org-refile-use-outline-path "full-file-path") ; Refile using a file-path
 (setq-default org-export-with-smart-quotes t)        ; Do the right thing with apostrophes
 (setq-default org-startup-folded t)                  ; Show overview, not EVERYTHING on startup
-
+(setq-default org-link-frame-setup '((file . find-file))) ; Follow link in same window
 ;; Set LaTeX compiler
 (setq org-latex-pdf-process (list "latexmk -f -pdf %f"))
 ;; Enable BibTeX
