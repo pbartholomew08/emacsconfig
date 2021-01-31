@@ -47,9 +47,11 @@
 ;;; Code:
 
 ;; Basic customisation
-(setq-default org-directory "~/Documents/org/")
-(setq-default org-agenda-files '("~/Documents/org/"))
-(require '.org-locals "~/.org-locals.el" t)
+(require 'org-tempo)
+
+(setq-default org-directory "~/Dropbox/org/")
+(setq-default org-agenda-files '("~/Dropbox/org/"))
+;(require '.org-locals "~/.org-locals.el" t)
 (global-set-key (kbd "C-c l") 'org-store-link)
 (global-set-key (kbd "C-c a") 'org-agenda)
 (global-set-key (kbd "C-c b") 'org-iswitchb)
