@@ -53,6 +53,7 @@
 		     "/usr/local/bin/guile")
 		    ((string-equal system-type "gnu/linux")
 		     "/bin/guile")))
+(setq-default geiser-chez-binary "chez")
 
 (provide 'my_scheme)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
