@@ -94,66 +94,15 @@ There are two things you can do about this warning:
 (require 'my_kbd)
 (require 'my_evil) ; Evil mode configuration file
 
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(magit-section-highlight ((((type tty)) nil))))
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(package-selected-packages
-   (quote
-    (gnuplot company-auctex company-bibtex auctex org-ref yaml-mode geiser anaconda-mode slime org-pomodoro diff-hl flycheck flycheck-pos-tip company rainbow-delimiters magit evil org-bullets spacemacs-theme)))
- '(safe-local-variable-values
-   (quote
-    ((eval setq flycheck-gcc-include-path
-	   (concat
-	    (file-name-as-directory
-	     (locate-dominating-file default-directory ".dir-locals.el"))
-	    "include"))
-     (eval setq flycheck-gcc-include-path
-	   (list
-	    (concat
-	     (file-name-as-directory
-	      (locate-dominating-file default-directory ".dir-locals.el"))
-	     "include")))
-     (eval setq flycheck-gcc-include-path
-	   (list
-	    (concat
-	     (file-name-as-directory
-	      (locate-dominating-file default-directory ".dir-locals.el")
-	      "include"))))
-     (eval setq-local flycheck-gcc-include-path
-	   (list
-	    (concat
-	     (file-name-as-directory
-	      (locate-dominating-file default-directory ".dir-locals.el")
-	      "include"))))
-     (eval add-to-list
-	   (quote auto-mode-alist)
-	   (quote
-	    ("\\.h\\'" . c++-mode)))
-     (eval setq fortran-comment-indent-style
-	   (quote relative))
-     (eval setq flycheck-gfortran-language-standard "f2003")
-     (eval setq flycheck-gfortran-include-path
-	   (list
-	    (file-name-directory
-	     (let
-		 ((d
-		   (dir-locals-find-file ".")))
-	       (if
-		   (stringp d)
-		   d
-		 (car d))))))
-     (eval setq flycheck-fortran-args "-fcray-pointer -cpp")
-     (eval setq flycheck-fortran-gfortran-executable "mpif90"))))
- '(user-full-name "Paul Bartholomew")
- '(user-mail-address "p.bartholomew@epcc.ed.ac.uk"))
+;;====================================================================
+;; Finally set machine-specific user options
+(require '.user.el "~/.user.el")
+
+;;====================================================================
+;; Store custom-settings elsewhere - outside version control
+(setq custom-file "~/.custom.el")
+(when (file-exists-p custom-file)
+  (load custom-file))
 
 (provide '.emacs)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
