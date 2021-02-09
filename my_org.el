@@ -194,6 +194,9 @@
 	 :file-name "%<%Y%m%d%H%M>"
 	 :head "#+TITLE: ${title}\n"
 	 :unnarrowed t)))
+(setq org-roam-buffer-position 'bottom)
+(setq org-roam-buffer-height 0.2)
+(setq org-roam-completion-system 'helm)
 (add-hook 'after-init-hook 'org-roam-mode)
 
 (provide 'my_org)
