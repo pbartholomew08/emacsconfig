@@ -71,7 +71,8 @@
 (setq org-latex-pdf-process (list "latexmk -f -pdf %f"))
 ;; Enable BibTeX
 (require 'org-ref)
-(setq org-ref-default-bibliography "~/OneDrive - University of Edinburgh/Documents/Bibliography/library.bib")
+(with-eval-after-load "~/.custom.el"
+  (setq org-ref-default-bibliography biblist))
 
 ;; linum-mode does not work well in org-mode
 (add-hook 'org-mode-hook

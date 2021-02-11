@@ -76,10 +76,8 @@
 (require 'company-bibtex)
 (add-to-list 'company-backends
 	     'company-bibtex)
-(setq company-bibtex-bibliography
-      '(
-	"~/OneDrive - University of Edinburgh/Documents/Bibliography/library.bib"
-	))
+(with-eval-after-load "~/.custom.el"
+  (setq company-bibtex-bibliography biblist))
 
 ;; Enable rainbow-delimiters
 (add-hook 'LaTeX-mode-hook 'rainbow-delimiters-mode)
@@ -101,8 +99,8 @@
 ;; RefTeX integration
 (add-hook 'LaTeX-mode-hook 'turn-on-reftex)
 (setq-default reftex-plug-into-AUCTeX t)
-(setq-default reftex-default-bibliography
-	      '("~/OneDrive - University of Edinburgh/Documents/Bibliography/library.bib"))
+(with-eval-after-load "~/.custom.el"
+  (setq-default reftex-default-bibliography biblist))
 
 ;; RefTeX speedups
 (setq-default reftex-enable-partial-scans t)
