@@ -93,6 +93,7 @@ There are two things you can do about this warning:
 ;; evil should be configured last. Also configure keyboard bindings.
 (require 'my_kbd)
 (require 'my_evil) ; Evil mode configuration file
+(require 'my_paredit)
 
 ;;====================================================================
 ;; Finally set machine-specific user options
