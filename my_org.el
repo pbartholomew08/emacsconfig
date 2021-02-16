@@ -125,6 +125,9 @@
 	("commentstyle" "\\color{cyan}\\ttfamily")
 	("showstringspaces" "false")))
 (add-to-list 'org-latex-listings-langs '(f90 "[90]Fortran"))
+(add-to-list 'org-latex-listings-langs '(scheme "Lisp"))
+
+;; Tables and listings should have their captions above, not below
 (setq-default org-latex-caption-above '(table
 					src-block))
 
