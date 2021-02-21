@@ -96,10 +96,6 @@ There are two things you can do about this warning:
 (require 'my_paredit)
 
 ;;====================================================================
-;; Finally set machine-specific user options
-(require '.user.el "~/.user.el")
-
-;;====================================================================
 ;; Store custom-settings elsewhere - outside version control
 (setq custom-file "~/.custom.el")
 (when (file-exists-p custom-file)
