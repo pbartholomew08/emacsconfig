@@ -201,6 +201,12 @@
 (setq org-roam-buffer-position 'bottom)
 (setq org-roam-buffer-height 0.2)
 (setq org-roam-completion-system 'helm)
+(setq org-roam-graph-node-extra-config
+      '(("shape" . "ellipse")
+	("style" . "rounded,filled")
+	("fillcolor" . "#EEEEEE")
+	("color" . "#C9C9C9")
+	("fontcolor" . "#111111")))
 (add-hook 'after-init-hook 'org-roam-mode)
 
 (provide 'my_org)
