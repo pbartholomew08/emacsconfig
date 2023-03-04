@@ -84,13 +84,13 @@
 
 ;; Disable menu bar
 (menu-bar-mode -1)
-(tool-bar-mode -1)
+(if (display-graphic-p)
+  (progn
+    (tool-bar-mode -1)
+    (scroll-bar-mode -1)))
 
 ;; Start full-screen
 (add-to-list 'initial-frame-alist '(fullscreen . maximized))
-
-;; Disable scroll bar
-(scroll-bar-mode -1)
 
 ;; Line numbering
 (global-linum-mode t)
@@ -203,8 +203,9 @@
 (require 'flycheck)
 (global-flycheck-mode)
 (setq-default flycheck-emacs-lisp-load-path 'inherit) ; This should prevent "I can't find this file" errors/warnings
-(with-eval-after-load 'flycheck
-  (flycheck-pos-tip-mode))
+(if (display-graphic-p)
+ (with-eval-after-load 'flycheck
+                       (flycheck-pos-tip-mode)))
 
 ;; flyspell
 (setq-default ispell-dictionary "british")

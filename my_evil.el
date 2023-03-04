@@ -67,6 +67,7 @@
      (define-key evil-normal-state-map (kbd "C-w <down>") 'evil-window-down)
      (define-key evil-normal-state-map (kbd "C-w <up>") 'evil-window-up)
      (define-key evil-normal-state-map (kbd "C-/") 'comment-dwim)
+     (define-key evil-normal-state-map (kbd "C-_") 'comment-dwim)
 		 ))
 
 (eval-after-load 'evil-ex
