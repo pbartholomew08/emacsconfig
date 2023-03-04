@@ -80,7 +80,7 @@ There are two things you can do about this warning:
 
 ;; Language-specific configurations
 (require 'my_elisp)   ; elisp configuration file
-;; (require 'my_clisp)   ; common lisp configuration
+(require 'my_clisp)   ; common lisp configuration
 (require 'my_scheme)  ; scheme configuration
 (require 'my_LaTeX)   ; LaTeX configuration
 (require 'my_org)     ; Org-mode configuration file
