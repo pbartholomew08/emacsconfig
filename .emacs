@@ -77,6 +77,7 @@ There are two things you can do about this warning:
 ;; General configurations
 (require 'my_emacs_config) ; Basic emacs configuration file
 ;; (require 'my_versioncontrol) ; Version-control configuration
+(require 'my_project)      ; Configure/extend project.el
 
 ;; Language-specific configurations
 (require 'my_elisp)   ; elisp configuration file
