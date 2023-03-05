@@ -75,6 +75,10 @@
 		   (interactive)
 		   (insert "#")))
 
+(when (string-equal 'system-type "darwin")
+  (global-set-key (kbd "<end>") 'move-end-of-line)
+  (global-set-key (kbd "<home>") 'move-beginning-of-line))
+
 (provide 'my_kbd)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; my_kbd.el ends here
