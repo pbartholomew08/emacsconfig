@@ -71,9 +71,13 @@
 
 ;; Rebind M-3 to hash symbol (for Mac's stupid keyboard layout)
 (global-set-key (kbd "M-3")
-		'(lambda ()
-		   (interactive)
-		   (insert "#")))
+		#'(lambda ()
+		    (interactive)
+		    (insert "#")))
+
+;; Fix paredit RETURN
+(define-key paredit-mode-map (kbd "RET") nil)
+(define-key paredit-mode-map (kbd "C-j") 'paredit-newline)
 
 (when (string-equal 'system-type "darwin")
   (global-set-key (kbd "<end>") 'move-end-of-line)
