@@ -75,6 +75,9 @@
        (add-to-list 'default-frame-alist
 		    '(font . "Hack-10"))))
 
+(add-hook 'compilation-filter-hook
+	  'ansi-color-compilation-filter)
+
 ;;--------------------------------------------------------------------
 ;; Tweaks
 
