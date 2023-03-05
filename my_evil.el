@@ -73,6 +73,10 @@
 (eval-after-load 'evil-ex
 	'(evil-ex-define-cmd "mg" 'magit-status))
 
+;; Restore Emacs behaviour in certain modes
+(evil-set-initial-state 'xref--xref-buffer-mode 'emacs)
+(evil-set-initial-state 'compilation-mode 'emacs)
+
 (provide 'my_evil)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; my_evil.el ends here
