@@ -55,6 +55,8 @@
 (require 'magit)
 (add-hook 'magit-post-refressh-hook 'diff-hl-magit-post-refresh)
 
+(require 'vc-git) ; Seems to be required by project.el
+
 (provide 'my_versioncontrol)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; my_versioncontrol.el ends here
