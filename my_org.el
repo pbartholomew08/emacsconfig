@@ -70,14 +70,9 @@
 ;; Set LaTeX compiler
 (setq org-latex-pdf-process (list "latexmk -f -pdf %f"))
 ;; Enable BibTeX
-(require 'org-ref)
-(with-eval-after-load "~/.custom.el"
-  (setq org-ref-default-bibliography biblist))
-
-;; linum-mode does not work well in org-mode
-(add-hook 'org-mode-hook
-          (lambda ()
-	    (linum-mode -1)))
+;(require 'org-ref)
+;(with-eval-after-load "~/.custom.el"
+;  (setq org-ref-default-bibliography biblist))
 
 ;; Enable flyspell
 (add-hook 'org-mode-hook 'flyspell-mode)
@@ -126,6 +121,7 @@
 	("showstringspaces" "false")))
 (add-to-list 'org-latex-listings-langs '(f90 "[90]Fortran"))
 (add-to-list 'org-latex-listings-langs '(scheme "Lisp"))
+(add-to-list 'org-latex-listings-langs '(toml "sh"))
 
 ;; Tables and listings should have their captions above, not below
 (setq-default org-latex-caption-above '(table
@@ -136,9 +132,10 @@
   '(setf org-highlight-latex-and-related '(latex)))
 
 ;; Better looking bullets
-(require 'org-bullets)
+(require 'org-superstar)
 (add-hook 'org-mode-hook (lambda ()
-			   (org-bullets-mode t)))
+			   (org-superstar-mode t)))
+
 
 ;; Pomodoro
 (require 'org-pomodoro)
